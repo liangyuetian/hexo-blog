@@ -5,6 +5,10 @@ tags: rxjs
 ---
 
 rxjs 操作符 - 创建操作符
+create，of，range，generate，repeat，empty
+throw，never，interval，timer
+from，fromPromise，fromEvent，fromEventPattern
+ajax，defer
 
 <!-- more -->
 
