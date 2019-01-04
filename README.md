@@ -13,3 +13,5 @@ https://github.com/dongyuanxin/theme-bmw.git
 [hexo-theme-awe](https://github.com/kywk/hexo-theme-awe) [demo](https://kywk.github.io/hexo-theme-awe/)
 ---
 [hexo-theme-aiki](https://github.com/foreachsam/hexo-theme-aiki) [demo](https://foreachsam.github.io/blog-framework-semantic-ui/article/)
+---
+[hexo-theme-aiki](https://github.com/foreachsam/hexo-theme-aiki) [demo](https://foreachsam.github.io/blog-framework-semantic-ui/article/)

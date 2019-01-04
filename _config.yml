@@ -81,3 +81,7 @@ deploy:
   type: git
   repository: https://github.com/liangyuetian/liangyuetian.github.io.git
   branch: master
+server:
+  port: 4001
+  compress: true
+  header: true
