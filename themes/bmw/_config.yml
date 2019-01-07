@@ -113,7 +113,7 @@ nav:
 # 友链详细信息：支持多个友链
 friends:
   -
-    nickname: GodBMW # 昵称
-    avatar: https://gravatar.loli.net/avatar/b20750c40cd911256ddbd76a7f7e724c # 头像链接
-    site: https://godbmw.com # 站点地址
-    meta: BMW 主题作者 # 站点描述
+    nickname: Healer # 昵称
+    avatar: https://wx.qlogo.cn/mmopen/vi_32/Q0j4TwGTfTKWFpNAqenicDLZW6Mp88fA8rQYPTELtGk2ibzp08Vyrdiaic4Mnf8EMibn9uxdibxyXXvhcedczfssjY4g/132 # 头像链接
+    site: https://say-healer.github.io/ # 站点地址
+    meta: 为自由而战 # 站点描述

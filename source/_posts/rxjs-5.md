@@ -2,8 +2,15 @@
 title: 过滤操作符
 date: 2019-01-03 22:34:58
 tags: rxjs
+playlist:
+  -
+    name: Apple.com（Cover miku）
+    artist: Hanser
+    url: "//music.163.com/song/media/outer/url?id=497215230.mp3"
+    cover: "//p2.music.126.net/9GAbSb_hlXPu66HWInJOww==/109951162846052486.jpg?param=90y90"
 ---
 
+<img src="//p2.music.126.net/9GAbSb_hlXPu66HWInJOww==/109951162846052486.jpg?param=90y90" width = "100" height = "100" div align=right style="position: absolute; right: 0; margin-top: -10px;" />
 filter，first，last，take，takeLast
 takeWhile,takeUntil,
 skip,
@@ -124,4 +131,31 @@ distinctUntilChange也接受第二个参数，但是第二个参数需要返回�
 ```js
 const source$ = Observable.of({}, {}, {})
 source$.distinctUntilChange((a, b) => a.name === b.name)
+```
+
+## 其他过滤方式
+### ignoreElements 忽略所有的元素
+```js
+const source$ = Observable.interval(1000).take(5)
+const result$ = source$.ignoreElements()
+// 不输出任何结果
+```
+### elementAt 把上游数据当成数组，只获取下标的那一个数据
+elementAt还有第二个参数，可以指定没有对应下班数据时的默认值
+```js
+const source$ = Observable.of(1, 2, 3)
+const result$ = source$.elementAt(3, null)
+```
+
+### sigle 
+检查上游是否只要一个满足对应条件的数据，如果答案为‘是’，就向下游传递这个数据
+如果为‘否’，就向下雨传递一个异常
+```js
+const source$ = Observable.interval(1000).take(2)
+const result$ = source$.single(x => x % 2 === 0)
+
+// 反例
+const source$ = Observable.interval(1000)
+const result$ = source$.single(x => x % 2 === 0)
+// source$ 会持续产生递增整数，当source$产生数据2时，single就发现source$中产生了两个偶数，这时候就会立刻向下游传递下面的错误
 ```

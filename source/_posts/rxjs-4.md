@@ -2,7 +2,15 @@
 title: 辅助类操作符
 date: 2019-01-02 23:11:01
 tags: rxjs
+playlist:
+  -
+    name: 千里邀月（人声本家）
+    artist: 泠鸢yousa / 茶理理 / Hanser / 三无MarBlue
+    url: "//music.163.com/song/media/outer/url?id=497215230.mp3"
+    cover: "//p2.music.126.net/4zluTz1ckuBWIbWHzc5xQA==/109951163736812658.jpg?param=90y90"
 ---
+
+<img src="//p2.music.126.net/4zluTz1ckuBWIbWHzc5xQA==/109951163736812658.jpg?param=90y90" width = "100" height = "100" div align=right style="position: absolute; right: 0; margin-top: -10px;" />
 
 辅助类操作符
 count，max，min，Reduce

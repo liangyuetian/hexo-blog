@@ -2,8 +2,15 @@
 title: rxjs 简介
 date: 2019-01-01 23:09:18
 tags: rxjs
+playlist:
+  -
+    name: 【bilibili音乐】一话一世界 《一花依世界》方言合唱版
+    artist: 雪霏岚岚 / 早木旋子 / 张小她 / 倒悬的橘子 / 双笙 / 宁采臣丶在唱歌 / A路人 / 漆柚 / YUKIri / warma / LKs / 洛天依 / 乐正绫
+    url: "//music.163.com/song/media/outer/url?id=1302601503.mp3"
+    cover: "//p2.music.126.net/KuEjitsnKt05FxnoKD0xcw==/109951163466304647.jpg?param=90y90"
 ---
 
+<img src="//p2.music.126.net/KuEjitsnKt05FxnoKD0xcw==/109951163466304647.jpg?param=90y90" width = "100" height = "100" div align=right style="position: absolute; right: 0; margin-top: -10px;" />
 函数式编程，Observable 和 Observer 
 观察者模式，迭代器模式
 操作符
