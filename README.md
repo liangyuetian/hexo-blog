@@ -1,3 +1,6 @@
+域名
+[https://liangyuetian.cn/](https://liangyuetian.cn/)
+
 部署地址
 ```bash
 https://liangyuetian.github.io/
