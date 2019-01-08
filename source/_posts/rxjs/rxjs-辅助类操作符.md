@@ -1,7 +1,9 @@
 ---
 title: 辅助类操作符
 date: 2019-01-02 23:11:01
-tags: rxjs
+tags: 
+    - rxjs
+    - 操作符
 playlist:
   -
     name: 千里邀月（人声本家）

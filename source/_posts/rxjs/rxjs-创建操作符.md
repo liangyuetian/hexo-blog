@@ -1,7 +1,9 @@
 ---
 title: 创建操作符
 date: 2019-01-01 23:20:47
-tags: rxjs
+tags: 
+    - rxjs
+    - 操作符
 playlist:
   -
     name: 绝代风华

@@ -6,7 +6,9 @@ playlist:
     url: //music.163.com/song/media/outer/url?id=640866.mp3
     cover: //p2.music.126.net/Q0T1QKMyaBKiWOMNI_E9Nw==/109951163246464748.jpg?param=90y90
 date: 2019-01-08 21:38:01
-tags: rxjs
+tags: 
+    - rxjs
+    - 操作符
 categories:
 ---
 

@@ -1,7 +1,9 @@
 ---
 title: rxjs 简介
 date: 2019-01-01 23:09:18
-tags: rxjs
+tags: 
+    - rxjs
+    - 操作符
 playlist:
   -
     name: 【bilibili音乐】一话一世界 《一花依世界》方言合唱版

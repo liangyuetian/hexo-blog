@@ -1,7 +1,9 @@
 ---
 title: 合并数据操作符
 date: 2019-01-02 23:01:37
-tags: rxjs
+tags: 
+    - rxjs
+    - 操作符
 playlist:
   -
     name: 千梦（Cover HITA / Aki阿杰）
