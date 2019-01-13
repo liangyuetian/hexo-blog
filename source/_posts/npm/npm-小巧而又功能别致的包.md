@@ -15,8 +15,9 @@ categories:
 
 <!-- more -->
 
-### serve
+### serve 静态服务器
 作用：一个简单的，零配置的命令行http服务器
+官网：[https://github.com/zeit/serve](https://github.com/zeit/serve)
 ```js
 npm install serve -g
 serve -l 5000 ./
@@ -35,8 +36,9 @@ server.listen(3000, () => {
 });
 ```
 
-### http-serve
+### http-serve 静态服务器
 作用：一个简单的，零配置的命令行http服务器
+官网：[https://github.com/indexzero/http-server](https://github.com/indexzero/http-server)
 ```js
 npm install http-server -g
 // http-server [path] [options]
@@ -45,8 +47,9 @@ http-server ./ -p 5000
 http-server -p 5000 ./
 ```
 
-### rimraf
+### rimraf 删除文件
 作用：以包的形式包装rm -rf命令，删除的极快
+官网：[https://github.com/isaacs/rimraf](https://github.com/isaacs/rimraf)
 ```bash
 npm install rimraf -g
 # 或
@@ -63,7 +66,7 @@ rimraf('./test.txt', function (err) { // 删除当前目录下的 test.txt
 
 ```
 
-### david
+### david 过期的依赖包
 作用：帮你找到已经过期的依赖包
 官网：[https://github.com/alanshaw/david](https://github.com/alanshaw/david)
 ```js
@@ -91,7 +94,7 @@ function listDependencies (deps) {
 }
 ```
 
-### localtunnel
+### localtunnel 内网穿透
 localtunnel：把本机服务暴露到外网
 官网：[https://github.com/localtunnel/localtunnel](https://github.com/localtunnel/localtunnel)
 
@@ -103,7 +106,7 @@ lt --port 8000
 // your url is: https://gentle-walrus-65.localtunnel.me
 ```
 
-### fanyi
+### fanyi 翻译工具
 作用：翻译工具，可以翻译汉语，也可以翻译英语，带耳机的话，还可以听到声音
 特别有意思
 ```js
