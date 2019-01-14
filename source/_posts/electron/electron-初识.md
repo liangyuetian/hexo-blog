@@ -75,4 +75,5 @@ win.webContents.openDevTools() // 也可以动态打开，随时执行随时打�
 win.on('closed', function () {
   win = null
 })
+
 ```

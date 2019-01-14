@@ -54,3 +54,6 @@ eventHub.emit('data', 'some other data')
 
 Hot 和 Cold 都具有懒的特质，不过Cold更懒一些，两者的数据管道内逻辑都是只有存在订阅者才会执行，
 Cold 更懒体现在，如果没有订阅者，连数据都不会真正产生，对于Hot Observable 没有订阅者的情况，数据依旧产生，只不过不传入数据管道
+
+## Subject
+
