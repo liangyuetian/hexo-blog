@@ -7,7 +7,9 @@ playlist:
     cover: >-
       //p2.music.126.net/4gzU-pTgbwBLHwx4-CJcgw==/903798558032135.jpg?param=90y90
 date: 2019-01-13 11:32:18
-tags: npm node
+tags:
+    - node
+    - npm
 categories:
 ---
 
