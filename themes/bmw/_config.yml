@@ -78,7 +78,7 @@ leancloud:
   timer: true # 是否开启文章统计
 
 # 导航栏头部名称
-nav_name: GODBMW.com 
+nav_name: liangyuetian.cn
 
 # 导航栏选项
 # blank: 是否在新页面打开，默认 false
