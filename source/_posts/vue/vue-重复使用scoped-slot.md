@@ -90,9 +90,9 @@ export default {
 ```
 
 ## 大功告成 总结
-其实核心的思路是，如果在父组件直接取<code>this.$slot</code>或<code>this.$scopedSlots</code>的话，
+如果在父组件直接取<code>this.$slot</code>或<code>this.$scopedSlots</code>的话，
 其实只能用一次
 如果在模板中使用 slot 标签来接收的话，其实也只能只用一次
 
-所以核心思路是；每次使用都必须重新穿件VNode节点，那只能每次都使用createElement生成node,
+所以核心思路是；每次使用都必须重新创建VNode节点，那只能每次都使用createElement生成node,
 那只有一个办法使用render渲染了，然后第一个参数创建dom后，dom附带的数据，都可以是一个对象，只要保证节点是唯一的即可，数据其实无所谓，怎么传都可以
