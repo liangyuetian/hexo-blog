@@ -5,6 +5,9 @@
   "hexo": {
     "version": "3.8.0"
   },
+  "scripts": {
+    "d": "hexo clean && hexo g && hexo d"
+  },
   "dependencies": {
     "david": "^11.0.0",
     "hexo": "^3.7.0",
