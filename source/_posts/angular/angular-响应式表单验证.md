@@ -183,3 +183,114 @@ updateProfile() {
     });
 }
 ```
+
+
+### FormBuilder 来生成表单控件
+* 1 导入FormBuilder控件
+```ts
+import { FormBuilder } from '@angular/forms';
+```
+* 2 注入服务
+```ts
+constructor(private fb: FormBuilder) { }
+```
+* 3 生成表单控件
+```ts
+// 这里，每个控件名对应的值都是一个数组，这个数组中的第一项是其初始值。
+// 你可以只使用初始值来定义控件，但是如果你的控件还需要同步或异步验证器，那就在这个数组中的第二项和第三项提供同步和异步验证器。
+profileForm = this.fb.group({
+    firstName: [''], // 第一项值是初始化值 第二项和第三项提供同步和异步验证器
+    lastName: [''],
+    address: this.fb.group({
+        street: [''],
+        city: [''],
+        state: [''],
+        zip: ['']
+    }),
+});
+
+// 与其对应的是完全手动创建
+profileForm = new FormGroup({
+    firstName: new FormControl(''),
+    lastName: new FormControl(''),
+    address: new FormGroup({
+        street: new FormControl(''),
+        city: new FormControl(''),
+        state: new FormControl(''),
+        zip: new FormControl('')
+    })
+});
+```
+
+### 简单表单验证
+* 1 导入验证器函数
+```ts
+import { Validators } from '@angular/forms';
+```
+* 2 - 把字段设为必填（required）
+```ts
+profileForm = this.fb.group({
+    firstName: ['', Validators.required], // 第一项值是初始化值 第二项和第三项提供同步和异步验证器
+    lastName: [''],
+    address: this.fb.group({
+        street: [''],
+        city: [''],
+        state: [''],
+        zip: ['']
+    }),
+});
+
+```
+#### 显示表单状态
+```html
+<p>
+    Form Status: {{ profileForm.status }}
+</p>
+```
+
+### 使用表单数组管理动态控件
+```ts
+import { FormArray } from '@angular/forms';
+```
+你可以通过把一组（从零项到多项）控件定义在一个数组中来初始化一个 FormArray。为 profileForm 添加一个 aliases 属性，把它定义为 FormArray 类型。
+
+使用 FormBuilder.array() 方法来定义该数组，并用 FormBuilder.control() 方法来往该数组中添加一个初始控件。
+
+```ts
+
+profileForm = this.fb.group({
+    aliases: this.fb.array([
+        this.fb.control('')
+    ])
+});
+
+// 得到 aliases
+get aliases() {
+    return this.profileForm.get('aliases') as FormArray;
+}
+
+// 在 FormArray 中添加值
+addAlias() {
+    this.aliases.push(this.fb.control(''));
+}
+```
+在模板中使用和显示这些值
+```html
+<form [formGroup]="profileForm" (ngSubmit)="onSubmit()">
+    <div formArrayName="aliases">
+        <h3>Aliases</h3>
+        <button (click)="addAlias()">Add Alias</button>
+        <div *ngFor="let address of aliases.controls; let i=index">
+            <!-- The repeated alias template -->
+            <label>
+                Alias:
+                <input type="text" [formControlName]="i">
+                <!-- *ngFor 指令对 aliases FormArray 提供的每个 FormControl 进行迭代。
+                因为 FormArray 中的元素是匿名的，所以你要把索引号赋值给 i 变量，并且把它传给每个控件的 formControlName 输入属性。 -->
+            </label>
+        </div>
+    </div>
+    <button type="submit" [disabled]="!profileForm.valid">Submit</button>
+</form>
+
+```
