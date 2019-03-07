@@ -1,5 +1,5 @@
 ---
-title: angular-响应式表单验证
+title: angular-响应式表单
 playlist:
   - name: Secret
     artist: 茶太
@@ -7,12 +7,83 @@ playlist:
     cover: >-
       //p2.music.126.net/4gzU-pTgbwBLHwx4-CJcgw==/903798558032135.jpg?param=90y90
 date: 2019-03-04 23:18:54
-tags:
+tags: angular
 categories:
 ---
 
 
 <!-- more -->
+
+总结：
+```ts
+import {FormGroup, FormControl, FormBuilder, FormArray, Validators} from '@angular/forms';
+
+export class ProfileEditorComponent implements OnInit {
+    constructor(private fb: FormBuilder) {
+    }
+    // profileForm = new FormGroup({
+    //     firstName: new FormControl(''),
+    //     lastName: new FormControl(''),
+    //     address: new FormGroup({
+    //         street: new FormControl(''),
+    //         city: new FormControl(''),
+    //         state: new FormControl(''),
+    //         zip: new FormControl('')
+    //     })
+    // });
+    profileForm = this.fb.group({
+        firstName: ['', Validators.required], // 第一项值是初始化值 第二项和第三项提供同步和异步验证器
+        lastName: [''],
+        address: this.fb.group({
+            street: [''],
+            city: [''],
+            state: [''],
+            zip: ['']
+        }),
+        aliases: this.fb.array([
+            this.fb.control('')
+        ])
+    });
+
+    updateProfile() {
+        // 当点击按钮时，profileForm 模型中只有 firstName 和 street 被修改了。注意，street 是在 address 属性的对象中被修改的。
+        // 这种结构是必须的，因为 patchValue() 方法要针对模型的结构进行更新。patchValue() 只会更新表单模型中所定义的那些属性。
+        this.profileForm.patchValue({
+            firstName: 'Nancy',
+            address: {
+                street: '123 Drew Street'
+            }
+        });
+    }
+
+    get aliases() {
+        return this.profileForm.get('aliases') as FormArray;
+    }
+
+    addAlias() {
+        this.aliases.push(this.fb.control(''));
+    }
+
+    ngOnInit() {
+        console.log(this.aliases);
+    }
+}
+```
+```html
+<form [formGroup]="profileForm" (ngSubmit)="onSubmit()">
+    <label> First Name: <input type="text" formControlName="firstName" required/></label>
+    <label>Last Name: <input type="text" formControlName="lastName"></label>
+    <div formGroupName="address">
+        <h3>Address</h3>
+        <label> Street: <input type="text" formControlName="street"></label>
+        <label> City: <input type="text" formControlName="city"></label>
+        <label> State: <input type="text" formControlName="state"></label>
+        <label> Zip Code: <input type="text" formControlName="zip"></label>
+    </div>
+    <button type="submit" [disabled]="!profileForm.valid">Submit</button>
+</form>
+```
+## 步骤
 ### 管理控件的值
 ### 1 注册 ReactiveFormsModule
 
