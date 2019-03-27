@@ -11,7 +11,15 @@ tags:
 categories:
 ---
 
-
+vue-重复使用scoped-slot
+```js
+render: (h, ctx) => { // dom渲染函数
+    return h('div', ctx.injections.Root.$scopedSlots['icon']({ // 得到名为icon的作用域插槽
+        data: ctx.props.data, // 给slot的组件传递props
+        options: ctx.props.options
+    }));
+}
+```
 
 <!-- more -->
 

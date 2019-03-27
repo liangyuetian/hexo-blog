@@ -11,6 +11,8 @@ tags: angular
 categories:
 ---
 
+表单验证
+[https://www.angular.cn/guide/form-validation](https://www.angular.cn/guide/form-validation)
 
 <!-- more -->
 
