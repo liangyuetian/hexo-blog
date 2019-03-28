@@ -7,7 +7,7 @@ playlist:
     cover: //p2.music.126.net/9GAbSb_hlXPu66HWInJOww==/109951162846052486.jpg?param=90y90
 date: 2019-01-14 23:06:39
 tags: electron
-categories:
+categories: Electron
 ---
 
 app 对象具有以下方法:

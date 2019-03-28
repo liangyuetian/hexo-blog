@@ -7,7 +7,7 @@ playlist:
     cover: //p1.music.126.net/_R0em0U-JicI5xybjZJA8Q==/109951163050383094.jpg?param=90y90
 date: 2019-01-14 22:48:54
 tags: electron 
-categories:
+categories: Electron
 ---
 
 > 控制你的应用程序的事件生命周期

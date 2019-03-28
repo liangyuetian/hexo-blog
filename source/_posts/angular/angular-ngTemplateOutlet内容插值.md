@@ -11,7 +11,7 @@ tags:
   - angular
   - ngTemplateOutlet
   - ContenChildren
-categories:
+categories: Angular
 ---
 
 angular ContentChild 与 ContenChildren 使用方法

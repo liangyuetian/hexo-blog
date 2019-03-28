@@ -8,7 +8,7 @@ playlist:
       //p2.music.126.net/4gzU-pTgbwBLHwx4-CJcgw==/903798558032135.jpg?param=90y90
 date: 2019-02-17 16:21:58
 tags:
-categories:
+categories: Angular
 ---
 
 

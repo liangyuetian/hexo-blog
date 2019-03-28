@@ -10,7 +10,7 @@ date: 2019-01-13 11:32:18
 tags:
     - node
     - npm
-categories:
+categories: Npm
 ---
 
 记录一些偶尔看到的不知名的，但是又非常方便的 npm 包

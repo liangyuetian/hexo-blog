@@ -4,6 +4,7 @@ date: 2019-01-03 22:34:58
 tags: 
     - rxjs
     - 操作符
+categories: RxJs
 playlist:
   -
     name: Apple.com（Cover miku）

@@ -8,7 +8,7 @@ playlist:
       //p2.music.126.net/4gzU-pTgbwBLHwx4-CJcgw==/903798558032135.jpg?param=90y90
 date: 2019-02-28 23:58:04
 tags:
-categories:
+categories: Vue
 ---
 
 vue-重复使用scoped-slot

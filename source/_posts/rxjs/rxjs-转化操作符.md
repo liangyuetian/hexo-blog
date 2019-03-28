@@ -4,7 +4,7 @@ date: 2019-01-07 21:21:12
 tags: 
     - rxjs
     - 操作符
-categories: 
+categories: RxJs
 playlist:
   -
     name: Secret

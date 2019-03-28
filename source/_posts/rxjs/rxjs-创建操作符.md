@@ -4,6 +4,7 @@ date: 2019-01-01 23:20:47
 tags: 
     - rxjs
     - 操作符
+categories: RxJs
 playlist:
   -
     name: 绝代风华

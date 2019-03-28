@@ -4,6 +4,7 @@ date: 2019-01-02 23:01:37
 tags: 
     - rxjs
     - 操作符
+categories: RxJs
 playlist:
   -
     name: 千梦（Cover HITA / Aki阿杰）

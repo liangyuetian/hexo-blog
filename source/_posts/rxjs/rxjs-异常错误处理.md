@@ -9,7 +9,7 @@ date: 2019-01-08 21:38:01
 tags: 
     - rxjs
     - 操作符
-categories:
+categories: RxJs
 ---
 
 rxjs 异常错误处理

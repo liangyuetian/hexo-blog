@@ -2,7 +2,7 @@
 title: electron-初识
 date: 2019-01-10 22:26:40
 tags: electron
-categories:
+categories: Electron
 ---
 
 第一次接触这么高大上的跨平台技术，
