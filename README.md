@@ -18,3 +18,25 @@ https://github.com/dongyuanxin/theme-bmw.git
 [hexo-theme-aiki](https://github.com/foreachsam/hexo-theme-aiki) [demo](https://foreachsam.github.io/blog-framework-semantic-ui/article/)
 ---
 [hexo-theme-aiki](https://github.com/foreachsam/hexo-theme-aiki) [demo](https://foreachsam.github.io/blog-framework-semantic-ui/article/)
+
+
+git submodule 使用
+添加
+```bash
+git submodule add  https://github.com/iissnan/hexo-theme-next themes/next
+```
+删除
+```bash
+git rm --cached themes/next
+```
+
+更新
+```bash
+
+```
+
+初始化 新拉项目时使用
+```bash
+git submodule init
+git submodule update
+```
