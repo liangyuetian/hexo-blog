@@ -20,6 +20,7 @@ ViewChild ContentChild 系列的查询参数，可以灵活的获得对应实例
 元数据属性：
 * selector - 用于查询的指令类型或名字。
 * read - 从查询到的元素中读取另一个令牌。
+
 所支持的选择器包括：
 * 任何带有 @Component 或 @Directive 装饰器的类
 * 字符串形式的模板引用变量（比如可以使用 @ViewChild('cmp') 来查询 <my-component #cmp></my-component>
