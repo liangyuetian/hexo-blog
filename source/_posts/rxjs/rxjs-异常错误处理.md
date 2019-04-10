@@ -4,12 +4,14 @@ playlist:
   - name: 近我者甜呀
     artist: 黑猫
     url: //music.163.com/song/media/outer/url?id=640866.mp3
-    cover: //p2.music.126.net/Q0T1QKMyaBKiWOMNI_E9Nw==/109951163246464748.jpg?param=90y90
-date: 2019-01-08 21:38:01
-tags: 
-    - rxjs
-    - 操作符
+    cover: >-
+      //p2.music.126.net/Q0T1QKMyaBKiWOMNI_E9Nw==/109951163246464748.jpg?param=90y90
+tags:
+  - rxjs
+  - 操作符
 categories: RxJs
+abbrlink: 7471
+date: 2019-01-08 21:38:01
 ---
 
 rxjs 异常错误处理

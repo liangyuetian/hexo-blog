@@ -1,16 +1,17 @@
 ---
 title: 合并数据操作符
-date: 2019-01-02 23:01:37
-tags: 
-    - rxjs
-    - 操作符
+tags:
+  - rxjs
+  - 操作符
 categories: RxJs
 playlist:
-  -
-    name: 千梦（Cover HITA / Aki阿杰）
+  - name: 千梦（Cover HITA / Aki阿杰）
     artist: 玄觞 / 双笙
-    url: "//music.163.com/song/media/outer/url?id=484692395.mp3"
-    cover: "//p2.music.126.net/5ykSTnsCz2O_2HB7MZWiMA==/109951162950148761.jpg?param=90y90"
+    url: //music.163.com/song/media/outer/url?id=484692395.mp3
+    cover: >-
+      //p2.music.126.net/5ykSTnsCz2O_2HB7MZWiMA==/109951162950148761.jpg?param=90y90
+abbrlink: 42779
+date: 2019-01-02 23:01:37
 ---
 
 <img src="//p2.music.126.net/5ykSTnsCz2O_2HB7MZWiMA==/109951162950148761.jpg?param=90y90" width = "100" height = "100" div align=right style="position: absolute; right: 0; margin-top: -10px;" />

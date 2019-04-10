@@ -1,16 +1,17 @@
 ---
 title: 转化操作符
-date: 2019-01-07 21:21:12
-tags: 
-    - rxjs
-    - 操作符
+tags:
+  - rxjs
+  - 操作符
 categories: RxJs
 playlist:
-  -
-    name: Secret
+  - name: Secret
     artist: 茶太
-    url: "//music.163.com/song/media/outer/url?id=640866.mp3"
-    cover: "//p2.music.126.net/4gzU-pTgbwBLHwx4-CJcgw==/903798558032135.jpg?param=90y90"
+    url: //music.163.com/song/media/outer/url?id=640866.mp3
+    cover: >-
+      //p2.music.126.net/4gzU-pTgbwBLHwx4-CJcgw==/903798558032135.jpg?param=90y90
+abbrlink: 27604
+date: 2019-01-07 21:21:12
 ---
 
 <img src="//p2.music.126.net/4gzU-pTgbwBLHwx4-CJcgw==/903798558032135.jpg?param=90y90" width = "100" height = "100" div align=right style="position: absolute; right: 0; margin-top: -10px;" />

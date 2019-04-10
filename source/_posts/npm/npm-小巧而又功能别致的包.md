@@ -6,11 +6,12 @@ playlist:
     url: //music.163.com/song/media/outer/url?id=640866.mp3
     cover: >-
       //p2.music.126.net/4gzU-pTgbwBLHwx4-CJcgw==/903798558032135.jpg?param=90y90
-date: 2019-01-13 11:32:18
 tags:
-    - node
-    - npm
+  - node
+  - npm
 categories: Npm
+abbrlink: 32327
+date: 2019-01-13 11:32:18
 ---
 
 记录一些偶尔看到的不知名的，但是又非常方便的 npm 包

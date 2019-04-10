@@ -6,11 +6,12 @@ playlist:
     url: //music.163.com/song/media/outer/url?id=640866.mp3
     cover: >-
       //p2.music.126.net/4gzU-pTgbwBLHwx4-CJcgw==/903798558032135.jpg?param=90y90
-date: 2019-04-02 09:39:31
 tags:
   - vue
   - object
 categories: Vue
+abbrlink: 10984
+date: 2019-04-02 09:39:31
 ---
 
 vue-禁止响应式监听
