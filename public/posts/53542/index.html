@@ -1,0 +1,793 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next gemini use-motion" lang="zh-CN">
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="electron,">
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="app 对象具有以下方法:文档：https://electronjs.org/docs/api/app#appquit">
+<meta name="keywords" content="electron">
+<meta property="og:type" content="article">
+<meta property="og:title" content="electron-app实例方法">
+<meta property="og:url" content="https://liangyuetian.github.io/posts/53542/index.html">
+<meta property="og:site_name" content="凉月-天">
+<meta property="og:description" content="app 对象具有以下方法:文档：https://electronjs.org/docs/api/app#appquit">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2019-04-11T09:37:45.646Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="electron-app实例方法">
+<meta name="twitter:description" content="app 对象具有以下方法:文档：https://electronjs.org/docs/api/app#appquit">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: 'Author'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="https://liangyuetian.github.io/posts/53542/">
+
+
+
+
+
+  <title>electron-app实例方法 | 凉月-天</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope="" itemtype="http://schema.org/WebPage" lang="zh-CN">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope="" itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">凉月-天</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <h1 class="site-subtitle" itemprop="description">凉月-天的博客</h1>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-主页">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
+            
+            主页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-关于">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br>
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-标签">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-类别">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br>
+            
+            类别
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-时间轴">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
+            
+            时间轴
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://liangyuetian.github.io/posts/53542/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="pt">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="凉月-天">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">electron-app实例方法</h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-01-14T23:06:39+08:00">
+                2019-01-14
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
+                  <a href="/categories/Electron/" itemprop="url" rel="index">
+                    <span itemprop="name">Electron</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>app 对象具有以下方法:<br>文档：<a href="https://electronjs.org/docs/api/app#appquit" target="_blank" rel="noopener">https://electronjs.org/docs/api/app#appquit</a></p>
+<a id="more"></a>
+<h3 id="app-quit"><a href="#app-quit" class="headerlink" title="app.quit()"></a>app.quit()</h3><p>尝试关闭所有窗口 将首先发出 before-quit 事件。 如果所有窗口都已成功关闭, 则将发出 will-quit 事件, 并且默认情况下应用程序将终止。</p>
+<p>此方法会确保执行所有beforeunload 和 unload事件处理程序。 可以在退出窗口之前的beforeunload事件处理程序中返回false取消退出。</p>
+<h3 id="app-exit-exitCode"><a href="#app-exit-exitCode" class="headerlink" title="app.exit([exitCode])"></a>app.exit([exitCode])</h3><p>立即退出程序并返回 exitCode。exitCode 的默认值是 0。</p>
+<p>所有窗口都将立即被关闭（不会弹出询问提示），而且 before-quit 和 will-quit 事件也不会被触发</p>
+<h3 id="app-relaunch-options"><a href="#app-relaunch-options" class="headerlink" title="app.relaunch([options])"></a>app.relaunch([options])</h3><p>options Object (可选)</p>
+<p>args String<br>execPath String (可选)<br>从当前实例退出，重启应用。</p>
+<p>默认情况下，新的实例会和当前实例使用相同的工作目录以及命令行参数。 当设置了 args 参数时， args 将作为命令行参数传递。 当设置了 execPath ，execPath 将被执行以重新启动，而不是当前的应用程序。</p>
+<p>请注意, 此方法在执行时不会退出当前的应用程序, 你需要在调用 app.relaunch 方法后再执行 app. quit 或者 app.exit 来让应用重启。</p>
+<p>当 app.relaunch 被多次调用时,多个实例将在当前实例退出后启动。</p>
+<p>立即重启当前实例并向新的实例添加新的命令行参数的示例：<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> &#123; app &#125; = <span class="built_in">require</span>(<span class="string">'electron'</span>)</span><br><span class="line"></span><br><span class="line">app.relaunch(&#123; <span class="attr">args</span>: process.argv.slice(<span class="number">1</span>).concat([<span class="string">'--relaunch'</span>]) &#125;)</span><br><span class="line">app.exit(<span class="number">0</span>)</span><br></pre></td></tr></table></figure></p>
+<h3 id="app-focus"><a href="#app-focus" class="headerlink" title="app.focus()"></a>app.focus()</h3><p>在 Linux 系统中, 使第一个可见窗口获取焦点。在 macOS 上, 让该应用成为活动应用程序。在 Windows 上, 使应用的第一个窗口获取焦点。</p>
+<h3 id="app-hide-macos"><a href="#app-hide-macos" class="headerlink" title="app.hide() macos"></a>app.hide() macos</h3><p>隐藏所有的应用窗口，不是最小化.</p>
+<h3 id="app-show-macOS"><a href="#app-show-macOS" class="headerlink" title="app.show() macOS"></a>app.show() macOS</h3><p>显示所有被隐藏的应用窗口。需要注意的是，这些窗口不会自动获取焦点。</p>
+<h3 id="app-getAppPath"><a href="#app-getAppPath" class="headerlink" title="app.getAppPath()"></a>app.getAppPath()</h3><p>返回 String 类型 - 当前应用程序所在目录</p>
+<h3 id="app-getVersion"><a href="#app-getVersion" class="headerlink" title="app.getVersion()"></a>app.getVersion()</h3><p>返回 String-加载的应用程序的版本。 如果应用程序的 package. json 文件中找不到版本号, 则返回当前包或者可执行文件的版本。</p>
+<h3 id="app-getName"><a href="#app-getName" class="headerlink" title="app.getName()"></a>app.getName()</h3><p>返回 String-当前应用程序的名称, 它是应用程序的 package. json 文件中的名称。</p>
+<p>根据 npm 的命名规则, 通常 package.json 中的 name 字段是一个短的小写字符串。 通常还应该指定一个 productName 字段, 是首字母大写的完整名称，用于表示应用程序的名称。Electron 会优先使用这个字段作为应用名。</p>
+<h3 id="app-setName-name"><a href="#app-setName-name" class="headerlink" title="app.setName(name)"></a>app.setName(name)</h3><p>name String<br>设置当前应用程序的名字</p>
+<h3 id="app-getLocale"><a href="#app-getLocale" class="headerlink" title="app.getLocale()"></a>app.getLocale()</h3><p>返回 string——当前应用程序的语言环境。可能的返回值被记录在这里。</p>
+<p>要设置区域，则需要在应用启动时使用命令行时打开开关，你可以在这里找到。</p>
+<p>注意: 分发打包的应用程序时, 你必须指定 locales 文件夹。</p>
+<p>注意： 在 Windows 上，你必须得等 ready 事件触发之后，才能调用该方法</p>
+<h3 id="app-addRecentDocument-path-macOS-Windows"><a href="#app-addRecentDocument-path-macOS-Windows" class="headerlink" title="app.addRecentDocument(path) macOS Windows"></a>app.addRecentDocument(path) macOS Windows</h3><p>path String<br>将此 path 添加到最近打开的文件列表中</p>
+<p>这个列表由操作系统进行管理。在 Windows 中从任务栏访问列表, 在 macOS 中通过 dock 菜单进行访问。</p>
+<h3 id="app-clearRecentDocuments-macOS-Windows"><a href="#app-clearRecentDocuments-macOS-Windows" class="headerlink" title="app.clearRecentDocuments() macOS Windows"></a>app.clearRecentDocuments() macOS Windows</h3><p>清空最近打开的文档列表</p>
+<h2 id="app-setAsDefaultProtocolClient-protocol-path-args"><a href="#app-setAsDefaultProtocolClient-protocol-path-args" class="headerlink" title="app.setAsDefaultProtocolClient(protocol[, path, args])"></a>app.setAsDefaultProtocolClient(protocol[, path, args])</h2><p><strong>设置别人可以唤醒此软件的协议</strong><br>protocol String - 协议的名称, 不包含 ://。 如果您希望应用程序处理 electron:// 的链接, 请将 electron 作为该方法的参数.<br>pathString (可选) Windows -默认为 process.execPath<br>args String Windows - 默认为空数组<br>返回 Boolean-是否成功调用。</p>
+<p>此方法将当前可执行文件设置为协议(也称为URI方案) 的默认处理程序。 它允许您将应用程序更深入地集成到操作系统中。 一旦注册成功, 所有 your-protocol:// 格式的链接都会使用你的程序打开。 整个链接 (包括协议) 将作为参数传递给您的应用程序。</p>
+<p>在 Windows 系统中，你可以提供可选参数 path，可执行文件的路径和 args (在启动时传递给可执行文件的参数数组)</p>
+<p>注意: 在 macOS 上, 您只能注册已添加到应用程序的 info. plist 中的协议, 在运行时不能对其进行修改。 但是，您可以在构建时使用简单的文本编辑器或脚本更改文件。 有关详细信息，请参阅 Apple’s documentation</p>
+<p>API 在内部使用 Windows 注册表和 LSSetDefaultHandlerForURLScheme。</p>
+<h3 id="app-enableSandbox-Experimental-macOS-Windows"><a href="#app-enableSandbox-Experimental-macOS-Windows" class="headerlink" title="app.enableSandbox() Experimental macOS Windows"></a>app.enableSandbox() Experimental macOS Windows</h3><p>在应用程序上启用完全沙盒模式。</p>
+<p>这个方法只能在应用程序准备就绪（ready）之前调用。</p>
+<h3 id="app-enableMixedSandbox-Experimental-macOS-Windows"><a href="#app-enableMixedSandbox-Experimental-macOS-Windows" class="headerlink" title="app.enableMixedSandbox() Experimental macOS Windows"></a>app.enableMixedSandbox() Experimental macOS Windows</h3><p>在应用程序上启用混合沙盒模式。</p>
+<p>这个方法只能在应用程序准备就绪（ready）之前调用。</p>
+<h3 id="app-isInApplicationsFolder-macOS"><a href="#app-isInApplicationsFolder-macOS" class="headerlink" title="app.isInApplicationsFolder() macOS"></a>app.isInApplicationsFolder() macOS</h3><p>返回 Boolean- 应用程序当前是否在系统应用程序文件夹运行。 可以搭配 app. moveToApplicationsFolder ()使用</p>
+<h3 id="app-dock-bounce-type-macOS"><a href="#app-dock-bounce-type-macOS" class="headerlink" title="app.dock.bounce([type]) macOS"></a>app.dock.bounce([type]) macOS</h3><p>type String (可选) - 可以为critical 或 informational. 默认值为 informational<br>当传入的是 critical 时, dock 中的应用将会开始弹跳, 直到这个应用被激活或者这个请求被取消。</p>
+<p>当传入的是 informational 时, dock 中的图标只会弹跳一秒钟。但是, 这个请求仍然会激活, 直到应用被激活或者请求被取消。</p>
+<p>返回 Integer 这个请求的 ID</p>
+<h3 id="app-dock-cancelBounce-id-macOS"><a href="#app-dock-cancelBounce-id-macOS" class="headerlink" title="app.dock.cancelBounce(id) macOS"></a>app.dock.cancelBounce(id) macOS</h3><p>id Integer<br>取消这个 id 对应的请求。</p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/electron/" rel="tag"># electron</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/posts/23055/" rel="next" title="electron-生命周期">
+                <i class="fa fa-chevron-left"></i> electron-生命周期
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/posts/29837/" rel="prev" title="electron-app实例属性">
+                electron-app实例属性 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+            
+              <p class="site-author-name" itemprop="name">pt</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives">
+              
+                  <span class="site-state-item-count">30</span>
+                  <span class="site-state-item-name">posts</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">8</span>
+                  <span class="site-state-item-name">categories</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">17</span>
+                  <span class="site-state-item-name">tags</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/liangyuetian" target="_blank" title="GitHub">
+                      
+                        <i class="fa fa-fw fa-github"></i>GitHub</a>
+                  </span>
+                
+            </div>
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#app-quit"><span class="nav-number">1.</span> <span class="nav-text">app.quit()</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#app-exit-exitCode"><span class="nav-number">2.</span> <span class="nav-text">app.exit([exitCode])</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#app-relaunch-options"><span class="nav-number">3.</span> <span class="nav-text">app.relaunch([options])</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#app-focus"><span class="nav-number">4.</span> <span class="nav-text">app.focus()</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#app-hide-macos"><span class="nav-number">5.</span> <span class="nav-text">app.hide() macos</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#app-show-macOS"><span class="nav-number">6.</span> <span class="nav-text">app.show() macOS</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#app-getAppPath"><span class="nav-number">7.</span> <span class="nav-text">app.getAppPath()</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#app-getVersion"><span class="nav-number">8.</span> <span class="nav-text">app.getVersion()</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#app-getName"><span class="nav-number">9.</span> <span class="nav-text">app.getName()</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#app-setName-name"><span class="nav-number">10.</span> <span class="nav-text">app.setName(name)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#app-getLocale"><span class="nav-number">11.</span> <span class="nav-text">app.getLocale()</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#app-addRecentDocument-path-macOS-Windows"><span class="nav-number">12.</span> <span class="nav-text">app.addRecentDocument(path) macOS Windows</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#app-clearRecentDocuments-macOS-Windows"><span class="nav-number">13.</span> <span class="nav-text">app.clearRecentDocuments() macOS Windows</span></a></li></ol><li class="nav-item nav-level-2"><a class="nav-link" href="#app-setAsDefaultProtocolClient-protocol-path-args"><span class="nav-number"></span> <span class="nav-text">app.setAsDefaultProtocolClient(protocol[, path, args])</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#app-enableSandbox-Experimental-macOS-Windows"><span class="nav-number">1.</span> <span class="nav-text">app.enableSandbox() Experimental macOS Windows</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#app-enableMixedSandbox-Experimental-macOS-Windows"><span class="nav-number">2.</span> <span class="nav-text">app.enableMixedSandbox() Experimental macOS Windows</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#app-isInApplicationsFolder-macOS"><span class="nav-number">3.</span> <span class="nav-text">app.isInApplicationsFolder() macOS</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#app-dock-bounce-type-macOS"><span class="nav-number">4.</span> <span class="nav-text">app.dock.bounce([type]) macOS</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#app-dock-cancelBounce-id-macOS"><span class="nav-number">5.</span> <span class="nav-text">app.dock.cancelBounce(id) macOS</span></a></li></ol></li></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; Tue Jan 01 2019 08:00:00 GMT+0800 (GMT+08:00) &mdash; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">pt</span>
+
+  
+</div>
+
+
+  <div class="powered-by">Powered by <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a></div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">Theme &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Gemini</a> v5.1.4</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
