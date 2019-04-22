@@ -1,16 +1,17 @@
 ---
 title: 过滤操作符
-date: 2019-01-03 22:34:58
-tags: 
-    - rxjs
-    - 操作符
+tags:
+  - rxjs
+  - 操作符
 categories: RxJs
 playlist:
-  -
-    name: Apple.com（Cover miku）
+  - name: Apple.com（Cover miku）
     artist: Hanser
-    url: "//music.163.com/song/media/outer/url?id=497215230.mp3"
-    cover: "//p2.music.126.net/9GAbSb_hlXPu66HWInJOww==/109951162846052486.jpg?param=90y90"
+    url: //music.163.com/song/media/outer/url?id=497215230.mp3
+    cover: >-
+      //p2.music.126.net/9GAbSb_hlXPu66HWInJOww==/109951162846052486.jpg?param=90y90
+abbrlink: 2034
+date: 2019-01-03 22:34:58
 ---
 
 <img src="//p2.music.126.net/9GAbSb_hlXPu66HWInJOww==/109951162846052486.jpg?param=90y90" width = "100" height = "100" div align=right style="position: absolute; right: 0; margin-top: -10px;" />

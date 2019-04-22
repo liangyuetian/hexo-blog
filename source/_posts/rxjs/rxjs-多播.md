@@ -1,16 +1,17 @@
 ---
 title: 多播
-date: 2019-01-08 23:03:58
-tags: 
-    - rxjs
-    - 多播
+tags:
+  - rxjs
+  - 多播
 categories: RxJs
 playlist:
-  -
-    name: 杏花弦外雨
+  - name: 杏花弦外雨
     artist: CRITTY / 司夏
-    url: "//music.163.com/song/media/outer/url?id=32957012.mp3"
-    cover: "//p2.music.126.net/iwZ6w7D5C8WXgnjcohHb0Q==/7799935488436943.jpg?param=90y90"
+    url: //music.163.com/song/media/outer/url?id=32957012.mp3
+    cover: >-
+      //p2.music.126.net/iwZ6w7D5C8WXgnjcohHb0Q==/7799935488436943.jpg?param=90y90
+abbrlink: 7684
+date: 2019-01-08 23:03:58
 ---
 
 <img src="//p2.music.126.net/9GAbSb_hlXPu66HWInJOww==/109951162846052486.jpg?param=90y90" width = "100" height = "100" div align=right style="position: absolute; right: 0; margin-top: -10px;" />

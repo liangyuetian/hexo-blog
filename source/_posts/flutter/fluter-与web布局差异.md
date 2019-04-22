@@ -6,9 +6,10 @@ playlist:
     url: //music.163.com/song/media/outer/url?id=640866.mp3
     cover: >-
       //p2.music.126.net/4gzU-pTgbwBLHwx4-CJcgw==/903798558032135.jpg?param=90y90
-date: 2019-02-02 17:08:32
 tags: flutter
 categories: Flutter
+abbrlink: 14102
+date: 2019-02-02 17:08:32
 ---
 
 [https://flutterchina.club/web-analogs/](https://flutterchina.club/web-analogs/)

@@ -4,10 +4,12 @@ playlist:
   - name: 千户 / 尤莉 - 雨だれの歌（少女终末旅行 插曲/第五集ED）
     artist: Kyle Xian
     url: //music.163.com/song/media/outer/url?id=517042218.mp3
-    cover: //p1.music.126.net/_R0em0U-JicI5xybjZJA8Q==/109951163050383094.jpg?param=90y90
-date: 2019-01-14 22:48:54
-tags: electron 
+    cover: >-
+      //p1.music.126.net/_R0em0U-JicI5xybjZJA8Q==/109951163050383094.jpg?param=90y90
+tags: electron
 categories: Electron
+abbrlink: 23055
+date: 2019-01-14 22:48:54
 ---
 
 > 控制你的应用程序的事件生命周期

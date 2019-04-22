@@ -4,10 +4,12 @@ playlist:
   - name: 只要有你
     artist: 那英/孙楠
     url: //music.163.com/song/media/outer/url?id=4878242.mp3
-    cover: //p1.music.126.net/hEHXQhWv095QtQDoSh3xfQ==/109951163569821751.jpg?param=90y90
-date: 2019-01-14 23:19:34
+    cover: >-
+      //p1.music.126.net/hEHXQhWv095QtQDoSh3xfQ==/109951163569821751.jpg?param=90y90
 tags: electron
 categories: Electron
+abbrlink: 29837
+date: 2019-01-14 23:19:34
 ---
 
 尴尬，文档上就写了一个！！

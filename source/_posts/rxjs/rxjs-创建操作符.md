@@ -1,16 +1,17 @@
 ---
 title: 创建操作符
-date: 2019-01-01 23:20:47
-tags: 
-    - rxjs
-    - 操作符
+tags:
+  - rxjs
+  - 操作符
 categories: RxJs
 playlist:
-  -
-    name: 绝代风华
+  - name: 绝代风华
     artist: 许嵩
-    url: "//music.163.com/song/media/outer/url?id=1327456179.mp3"
-    cover: "//p2.music.126.net/Ngh65GwhHtufNRSs9KgEIA==/109951163681417636.jpg?param=90y90"
+    url: //music.163.com/song/media/outer/url?id=1327456179.mp3
+    cover: >-
+      //p2.music.126.net/Ngh65GwhHtufNRSs9KgEIA==/109951163681417636.jpg?param=90y90
+abbrlink: 52546
+date: 2019-01-01 23:20:47
 ---
 
 <img src="//p2.music.126.net/Ngh65GwhHtufNRSs9KgEIA==/109951163681417636.jpg?param=90y90" width = "100" height = "100" div align=right style="position: absolute; right: 0; margin-top: -10px;" />

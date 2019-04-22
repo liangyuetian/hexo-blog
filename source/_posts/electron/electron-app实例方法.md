@@ -4,10 +4,12 @@ playlist:
   - name: 随便～随便～随便～（Cover RIN&REN）
     artist: Hanser / YUKIri
     url: //music.163.com/song/media/outer/url?id=640866.mp3
-    cover: //p2.music.126.net/9GAbSb_hlXPu66HWInJOww==/109951162846052486.jpg?param=90y90
-date: 2019-01-14 23:06:39
+    cover: >-
+      //p2.music.126.net/9GAbSb_hlXPu66HWInJOww==/109951162846052486.jpg?param=90y90
 tags: electron
 categories: Electron
+abbrlink: 53542
+date: 2019-01-14 23:06:39
 ---
 
 app 对象具有以下方法:

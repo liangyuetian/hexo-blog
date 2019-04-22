@@ -1,0 +1,778 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next gemini use-motion" lang="zh-CN">
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="electron,">
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="控制你的应用程序的事件生命周期文档地址：https://electronjs.org/docs/api/app">
+<meta name="keywords" content="electron">
+<meta property="og:type" content="article">
+<meta property="og:title" content="electron-生命周期">
+<meta property="og:url" content="https://liangyuetian.github.io/posts/23055/index.html">
+<meta property="og:site_name" content="凉月-天">
+<meta property="og:description" content="控制你的应用程序的事件生命周期文档地址：https://electronjs.org/docs/api/app">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2019-04-11T09:37:45.647Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="electron-生命周期">
+<meta name="twitter:description" content="控制你的应用程序的事件生命周期文档地址：https://electronjs.org/docs/api/app">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: 'Author'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="https://liangyuetian.github.io/posts/23055/">
+
+
+
+
+
+  <title>electron-生命周期 | 凉月-天</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope="" itemtype="http://schema.org/WebPage" lang="zh-CN">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope="" itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">凉月-天</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <h1 class="site-subtitle" itemprop="description">凉月-天的博客</h1>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-主页">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
+            
+            主页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-关于">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br>
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-标签">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-类别">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br>
+            
+            类别
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-时间轴">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
+            
+            时间轴
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://liangyuetian.github.io/posts/23055/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="pt">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="凉月-天">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">electron-生命周期</h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-01-14T22:48:54+08:00">
+                2019-01-14
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
+                  <a href="/categories/Electron/" itemprop="url" rel="index">
+                    <span itemprop="name">Electron</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <blockquote>
+<p>控制你的应用程序的事件生命周期<br>文档地址：<a href="https://electronjs.org/docs/api/app" target="_blank" rel="noopener">https://electronjs.org/docs/api/app</a></p>
+</blockquote>
+<a id="more"></a>
+<h2 id="electron-的生命周期"><a href="#electron-的生命周期" class="headerlink" title="electron 的生命周期"></a>electron 的生命周期</h2><p>app 对象会发出以下事件<br>文档地址：<a href="https://electronjs.org/docs/api/app" target="_blank" rel="noopener">https://electronjs.org/docs/api/app</a></p>
+<h3 id="window-all-closed-最后一个窗口被关闭"><a href="#window-all-closed-最后一个窗口被关闭" class="headerlink" title="window-all-closed 最后一个窗口被关闭"></a>window-all-closed 最后一个窗口被关闭</h3><p>最后一个窗口被关闭时退出应用<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> &#123; app &#125; = <span class="built_in">require</span>(<span class="string">'electron'</span>)</span><br><span class="line">app.on(<span class="string">'window-all-closed'</span>, () =&gt; &#123;</span><br><span class="line">  app.quit()</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure></p>
+<h3 id="read-当-Electron-完成初始化时被触发"><a href="#read-当-Electron-完成初始化时被触发" class="headerlink" title="read 当 Electron 完成初始化时被触发"></a>read 当 Electron 完成初始化时被触发</h3><p>当 Electron 完成初始化时被触发。 在 macOS 中, 如果从通知中心中启动，那么 launchInfo 中的 userInfo 包含用来打开应用程序的 NSUserNotification 信息。 你可以通过调用 app.isReady() 方法来检查此事件是否已触发。<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> &#123; app &#125; = <span class="built_in">require</span>(<span class="string">'electron'</span>)</span><br><span class="line">app.on(<span class="string">'read'</span>, () =&gt; &#123;</span><br><span class="line">  app.quit()</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure></p>
+<h3 id="will-finish-launching"><a href="#will-finish-launching" class="headerlink" title="will-finish-launching"></a>will-finish-launching</h3><p>当应用程序完成基础的启动的时候被触发<br>在 Windows 和 Linux 中, will-finish-launching 事件与 ready 事件是相同的; 在 macOS 中，这个事件相当于 NSApplication 中的 applicationWillFinishLaunching 提示。 通常会在这里为 open-file 和 open-url 设置监听器，并启动崩溃报告和自动更新。</p>
+<p>绝大部分情况下，你必须在ready事件句柄中处理所有事务。</p>
+<h3 id="quit-在应用程序退出时发出"><a href="#quit-在应用程序退出时发出" class="headerlink" title="quit 在应用程序退出时发出"></a>quit 在应用程序退出时发出</h3><p>在应用程序退出时发出<br>注:在 Windows 系统中，如果应用程序因系统关机/重启或用户注销而关闭，那么这个事件不会被触发。<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> &#123; app &#125; = <span class="built_in">require</span>(<span class="string">'electron'</span>)</span><br><span class="line">app.on(<span class="string">'quit'</span>, () =&gt; &#123;</span><br><span class="line">  app.quit()</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure></p>
+<h3 id="will-quit"><a href="#will-quit" class="headerlink" title="will-quit"></a>will-quit</h3><p>当所有窗口都已关闭并且应用程序将退出时发出。调用 event. preventDefault () 将阻止终止应用程序的默认行为。<br>关于 window-all-closed 和 will-quit 事件之间的差异, 请参见 window-all-closed 事件的说明。<br>注:在 Windows 系统中，如果应用程序因系统关机/重启或用户注销而关闭，那么这个事件不会被触发。<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> &#123; app &#125; = <span class="built_in">require</span>(<span class="string">'electron'</span>)</span><br><span class="line">app.on(<span class="string">'will-quit'</span>, () =&gt; &#123;</span><br><span class="line">  app.quit()</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure></p>
+<h3 id="before-quit"><a href="#before-quit" class="headerlink" title="before-quit"></a>before-quit</h3><p>在应用程序开始关闭窗口之前触发。 调用 event.preventDefault() 会阻止默认的行为。默认的行为是终结应用程序。<br>注意: 如果应用程序退出是因调用了autoUpdater. quitAndInstall (), 所有窗口都会发出close Event 然后 before-quit Event 并关闭所有窗口。</p>
+<p>注:在 Windows 系统中，如果应用程序因系统关机/重启或用户注销而关闭，那么这个事件不会被触发。<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> &#123; app &#125; = <span class="built_in">require</span>(<span class="string">'electron'</span>)</span><br><span class="line">app.on(<span class="string">'before-quit'</span>, () =&gt; &#123;</span><br><span class="line">  app.quit()</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure></p>
+<h3 id="window-all-closed-当所有的窗口都被关闭时触发"><a href="#window-all-closed-当所有的窗口都被关闭时触发" class="headerlink" title="window-all-closed 当所有的窗口都被关闭时触发"></a>window-all-closed 当所有的窗口都被关闭时触发</h3><p>如果你没有监听此事件并且所有窗口都关闭了，默认的行为是控制退出程序；但如果你监听了此事件，你可以控制是否退出程序。 如果用户按下了 Cmd + Q，或者开发者调用了 app.quit()，Electron 会首先关闭所有的窗口然后触发 will-quit 事件，在这种情况下 window-all-closed 事件不会被触发。<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> &#123; app &#125; = <span class="built_in">require</span>(<span class="string">'electron'</span>)</span><br><span class="line">app.on(<span class="string">'window-all-closed'</span>, () =&gt; &#123;</span><br><span class="line">  app.quit()</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure></p>
+<h2 id="主动打开类"><a href="#主动打开类" class="headerlink" title="主动打开类"></a>主动打开类</h2><h3 id="open-file-macos"><a href="#open-file-macos" class="headerlink" title="open-file macos"></a>open-file macos</h3><p>当用户想要在应用中打开一个文件时发出。 open-file 事件通常在应用已经打开，并且系统要再次使用该应用打开文件时发出。 open-file也会在一个文件被拖到 dock 并且还没有运行的时候发出。 请确认在应用启动的时候(甚至在 ready 事件发出前) 就对 open-file 事件进行监听。</p>
+<p>如果你想处理这个事件，你应该调用 event.preventDefault() 。</p>
+<p>在 Windows 系统中，你需要解析 process.argv (在主进程中) 来获取文件路径</p>
+<h3 id="open-url-macos"><a href="#open-url-macos" class="headerlink" title="open-url macos"></a>open-url macos</h3><p>当用户想要在应用中打开一个 URL 时发出。 应用程序的 Info. plist 文件必须在 CFBundleURLTypes 项中定义 url 方案, 并将 NSPrincipalClass 设置为 AtomApplication。</p>
+<p>如果你想处理这个事件，你应该调用 event.preventDefault() 。</p>
+<h3 id="activate-macos"><a href="#activate-macos" class="headerlink" title="activate macos"></a>activate macos</h3><p>当应用被激活时发出。 各种操作都可以触发此事件, 例如首次启动应用程序、尝试在应用程序已运行时或单击应用程序的坞站或任务栏图标时重新激活它。</p>
+<h3 id="new-window-for-tab-macos"><a href="#new-window-for-tab-macos" class="headerlink" title="new-window-for-tab macos"></a>new-window-for-tab macos</h3><p>当用户单击 macOS 新选项卡按钮时发出。仅当当前 BrowserWindow 具有 tabbingIdentifier 时, 才会显示新的选项卡按钮</p>
+<h3 id="browser-window-blur"><a href="#browser-window-blur" class="headerlink" title="browser-window-blur"></a>browser-window-blur</h3><p>在窗口失去焦点时触发</p>
+<h3 id="browser-window-created"><a href="#browser-window-created" class="headerlink" title="browser-window-created"></a>browser-window-created</h3><p>在创建新的 browserWindow 时发出</p>
+<h3 id="web-contents-created"><a href="#web-contents-created" class="headerlink" title="web-contents-created"></a>web-contents-created</h3><p>在创建新的 webContents 时发出。</p>
+<h3 id="gpu-process-crashed"><a href="#gpu-process-crashed" class="headerlink" title="gpu-process-crashed"></a>gpu-process-crashed</h3><p>当 gpu 进程崩溃或被杀时触发</p>
+<h3 id="session-created"><a href="#session-created" class="headerlink" title="session-created"></a>session-created</h3><p>当 Electron创建了一个新的 session后被触发.<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> &#123; app &#125; = <span class="built_in">require</span>(<span class="string">'electron'</span>)</span><br><span class="line"></span><br><span class="line">app.on(<span class="string">'session-created'</span>, (event, session) =&gt; &#123;</span><br><span class="line">  <span class="built_in">console</span>.log(session)</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure></p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/electron/" rel="tag"># electron</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/posts/32327/" rel="next" title="npm-小巧而又功能别致的包">
+                <i class="fa fa-chevron-left"></i> npm-小巧而又功能别致的包
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/posts/53542/" rel="prev" title="electron-app实例方法">
+                electron-app实例方法 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+            
+              <p class="site-author-name" itemprop="name">pt</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives">
+              
+                  <span class="site-state-item-count">30</span>
+                  <span class="site-state-item-name">posts</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">8</span>
+                  <span class="site-state-item-name">categories</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">17</span>
+                  <span class="site-state-item-name">tags</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/liangyuetian" target="_blank" title="GitHub">
+                      
+                        <i class="fa fa-fw fa-github"></i>GitHub</a>
+                  </span>
+                
+            </div>
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#electron-的生命周期"><span class="nav-number">1.</span> <span class="nav-text">electron 的生命周期</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#window-all-closed-最后一个窗口被关闭"><span class="nav-number">1.1.</span> <span class="nav-text">window-all-closed 最后一个窗口被关闭</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#read-当-Electron-完成初始化时被触发"><span class="nav-number">1.2.</span> <span class="nav-text">read 当 Electron 完成初始化时被触发</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#will-finish-launching"><span class="nav-number">1.3.</span> <span class="nav-text">will-finish-launching</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#quit-在应用程序退出时发出"><span class="nav-number">1.4.</span> <span class="nav-text">quit 在应用程序退出时发出</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#will-quit"><span class="nav-number">1.5.</span> <span class="nav-text">will-quit</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#before-quit"><span class="nav-number">1.6.</span> <span class="nav-text">before-quit</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#window-all-closed-当所有的窗口都被关闭时触发"><span class="nav-number">1.7.</span> <span class="nav-text">window-all-closed 当所有的窗口都被关闭时触发</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#主动打开类"><span class="nav-number">2.</span> <span class="nav-text">主动打开类</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#open-file-macos"><span class="nav-number">2.1.</span> <span class="nav-text">open-file macos</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#open-url-macos"><span class="nav-number">2.2.</span> <span class="nav-text">open-url macos</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#activate-macos"><span class="nav-number">2.3.</span> <span class="nav-text">activate macos</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#new-window-for-tab-macos"><span class="nav-number">2.4.</span> <span class="nav-text">new-window-for-tab macos</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#browser-window-blur"><span class="nav-number">2.5.</span> <span class="nav-text">browser-window-blur</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#browser-window-created"><span class="nav-number">2.6.</span> <span class="nav-text">browser-window-created</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#web-contents-created"><span class="nav-number">2.7.</span> <span class="nav-text">web-contents-created</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#gpu-process-crashed"><span class="nav-number">2.8.</span> <span class="nav-text">gpu-process-crashed</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#session-created"><span class="nav-number">2.9.</span> <span class="nav-text">session-created</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; Tue Jan 01 2019 08:00:00 GMT+0800 (GMT+08:00) &mdash; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">pt</span>
+
+  
+</div>
+
+
+  <div class="powered-by">Powered by <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a></div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">Theme &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Gemini</a> v5.1.4</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

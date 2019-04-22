@@ -1,0 +1,796 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next gemini use-motion" lang="zh-CN">
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="angular,">
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="响应式表单">
+<meta name="keywords" content="angular">
+<meta property="og:type" content="article">
+<meta property="og:title" content="angular-响应式表单">
+<meta property="og:url" content="https://liangyuetian.github.io/posts/5680/index.html">
+<meta property="og:site_name" content="凉月-天">
+<meta property="og:description" content="响应式表单">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2019-04-11T09:37:45.642Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="angular-响应式表单">
+<meta name="twitter:description" content="响应式表单">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: 'Author'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="https://liangyuetian.github.io/posts/5680/">
+
+
+
+
+
+  <title>angular-响应式表单 | 凉月-天</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope="" itemtype="http://schema.org/WebPage" lang="zh-CN">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope="" itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">凉月-天</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <h1 class="site-subtitle" itemprop="description">凉月-天的博客</h1>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-主页">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
+            
+            主页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-关于">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br>
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-标签">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-类别">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br>
+            
+            类别
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-时间轴">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
+            
+            时间轴
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://liangyuetian.github.io/posts/5680/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="pt">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="凉月-天">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">angular-响应式表单</h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-03-04T23:18:54+08:00">
+                2019-03-04
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
+                  <a href="/categories/Angular/" itemprop="url" rel="index">
+                    <span itemprop="name">Angular</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>响应式表单</p>
+<a id="more"></a>
+<p>总结：<br><figure class="highlight ts"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> &#123;FormGroup, FormControl, FormBuilder, FormArray, Validators&#125; <span class="keyword">from</span> <span class="string">'@angular/forms'</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">class</span> ProfileEditorComponent <span class="keyword">implements</span> OnInit &#123;</span><br><span class="line">    <span class="keyword">constructor</span>(<span class="params"><span class="keyword">private</span> fb: FormBuilder</span>) &#123;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">// profileForm = new FormGroup(&#123;</span></span><br><span class="line">    <span class="comment">//     firstName: new FormControl(''),</span></span><br><span class="line">    <span class="comment">//     lastName: new FormControl(''),</span></span><br><span class="line">    <span class="comment">//     address: new FormGroup(&#123;</span></span><br><span class="line">    <span class="comment">//         street: new FormControl(''),</span></span><br><span class="line">    <span class="comment">//         city: new FormControl(''),</span></span><br><span class="line">    <span class="comment">//         state: new FormControl(''),</span></span><br><span class="line">    <span class="comment">//         zip: new FormControl('')</span></span><br><span class="line">    <span class="comment">//     &#125;)</span></span><br><span class="line">    <span class="comment">// &#125;);</span></span><br><span class="line">    profileForm = <span class="keyword">this</span>.fb.group(&#123;</span><br><span class="line">        firstName: [<span class="string">''</span>, Validators.required], <span class="comment">// 第一项值是初始化值 第二项和第三项提供同步和异步验证器</span></span><br><span class="line">        lastName: [<span class="string">''</span>],</span><br><span class="line">        address: <span class="keyword">this</span>.fb.group(&#123;</span><br><span class="line">            street: [<span class="string">''</span>],</span><br><span class="line">            city: [<span class="string">''</span>],</span><br><span class="line">            state: [<span class="string">''</span>],</span><br><span class="line">            zip: [<span class="string">''</span>]</span><br><span class="line">        &#125;),</span><br><span class="line">        aliases: <span class="keyword">this</span>.fb.array([</span><br><span class="line">            <span class="keyword">this</span>.fb.control(<span class="string">''</span>)</span><br><span class="line">        ])</span><br><span class="line">    &#125;);</span><br><span class="line"></span><br><span class="line">    updateProfile() &#123;</span><br><span class="line">        <span class="comment">// 当点击按钮时，profileForm 模型中只有 firstName 和 street 被修改了。注意，street 是在 address 属性的对象中被修改的。</span></span><br><span class="line">        <span class="comment">// 这种结构是必须的，因为 patchValue() 方法要针对模型的结构进行更新。patchValue() 只会更新表单模型中所定义的那些属性。</span></span><br><span class="line">        <span class="keyword">this</span>.profileForm.patchValue(&#123;</span><br><span class="line">            firstName: <span class="string">'Nancy'</span>,</span><br><span class="line">            address: &#123;</span><br><span class="line">                street: <span class="string">'123 Drew Street'</span></span><br><span class="line">            &#125;</span><br><span class="line">        &#125;);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">get</span> aliases() &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">this</span>.profileForm.get(<span class="string">'aliases'</span>) <span class="keyword">as</span> FormArray;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    addAlias() &#123;</span><br><span class="line">        <span class="keyword">this</span>.aliases.push(<span class="keyword">this</span>.fb.control(<span class="string">''</span>));</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    ngOnInit() &#123;</span><br><span class="line">        <span class="built_in">console</span>.log(<span class="keyword">this</span>.aliases);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">form</span> [<span class="attr">formGroup</span>]=<span class="string">"profileForm"</span> (<span class="attr">ngSubmit</span>)=<span class="string">"onSubmit()"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">label</span>&gt;</span> First Name: <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"text"</span> <span class="attr">formControlName</span>=<span class="string">"firstName"</span> <span class="attr">required</span>/&gt;</span><span class="tag">&lt;/<span class="name">label</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">label</span>&gt;</span>Last Name: <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"text"</span> <span class="attr">formControlName</span>=<span class="string">"lastName"</span>&gt;</span><span class="tag">&lt;/<span class="name">label</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">formGroupName</span>=<span class="string">"address"</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">h3</span>&gt;</span>Address<span class="tag">&lt;/<span class="name">h3</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">label</span>&gt;</span> Street: <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"text"</span> <span class="attr">formControlName</span>=<span class="string">"street"</span>&gt;</span><span class="tag">&lt;/<span class="name">label</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">label</span>&gt;</span> City: <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"text"</span> <span class="attr">formControlName</span>=<span class="string">"city"</span>&gt;</span><span class="tag">&lt;/<span class="name">label</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">label</span>&gt;</span> State: <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"text"</span> <span class="attr">formControlName</span>=<span class="string">"state"</span>&gt;</span><span class="tag">&lt;/<span class="name">label</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">label</span>&gt;</span> Zip Code: <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"text"</span> <span class="attr">formControlName</span>=<span class="string">"zip"</span>&gt;</span><span class="tag">&lt;/<span class="name">label</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">button</span> <span class="attr">type</span>=<span class="string">"submit"</span> [<span class="attr">disabled</span>]=<span class="string">"!profileForm.valid"</span>&gt;</span>Submit<span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">form</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<h2 id="步骤"><a href="#步骤" class="headerlink" title="步骤"></a>步骤</h2><h3 id="管理控件的值"><a href="#管理控件的值" class="headerlink" title="管理控件的值"></a>管理控件的值</h3><h3 id="1-注册-ReactiveFormsModule"><a href="#1-注册-ReactiveFormsModule" class="headerlink" title="1 注册 ReactiveFormsModule"></a>1 注册 ReactiveFormsModule</h3><figure class="highlight ts"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> &#123; ReactiveFormsModule &#125; <span class="keyword">from</span> <span class="string">'@angular/forms'</span>;</span><br><span class="line"></span><br><span class="line"><span class="meta">@NgModule</span>(&#123;</span><br><span class="line">  imports: [</span><br><span class="line">    <span class="comment">// other imports ...</span></span><br><span class="line">    ReactiveFormsModule</span><br><span class="line">  ],</span><br><span class="line">&#125;)</span><br><span class="line"><span class="keyword">export</span> <span class="keyword">class</span> AppModule &#123; &#125;</span><br></pre></td></tr></table></figure>
+<h3 id="2-生成并导入一个新的表单控件"><a href="#2-生成并导入一个新的表单控件" class="headerlink" title="2 - 生成并导入一个新的表单控件"></a>2 - 生成并导入一个新的表单控件</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ng generate component NameEditor</span><br></pre></td></tr></table></figure>
+<figure class="highlight ts"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> &#123; Component &#125; <span class="keyword">from</span> <span class="string">'@angular/core'</span>;</span><br><span class="line"><span class="keyword">import</span> &#123; FormControl &#125; <span class="keyword">from</span> <span class="string">'@angular/forms'</span>;</span><br><span class="line"></span><br><span class="line"><span class="meta">@Component</span>(&#123;</span><br><span class="line">  selector: <span class="string">'app-name-editor'</span>,</span><br><span class="line">  templateUrl: <span class="string">'./name-editor.component.html'</span>,</span><br><span class="line">  styleUrls: [<span class="string">'./name-editor.component.css'</span>]</span><br><span class="line">&#125;)</span><br><span class="line"><span class="keyword">export</span> <span class="keyword">class</span> NameEditorComponent &#123;</span><br><span class="line">  name = <span class="keyword">new</span> FormControl(<span class="string">''</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="3-在模板中注册该控件"><a href="#3-在模板中注册该控件" class="headerlink" title="3 - 在模板中注册该控件"></a>3 - 在模板中注册该控件</h3><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">label</span>&gt;</span></span><br><span class="line">  Name:</span><br><span class="line">  <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"text"</span> [<span class="attr">formControl</span>]=<span class="string">"name"</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">label</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<h4 id="显示表单控件的值"><a href="#显示表单控件的值" class="headerlink" title="显示表单控件的值"></a>显示表单控件的值</h4><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">p</span>&gt;</span></span><br><span class="line">  Value: &#123;&#123; name.value &#125;&#125;</span><br><span class="line">  可以使用模板语法，也可以使用subscribe() 方法进行监听</span><br><span class="line"><span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>如：<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">export</span> <span class="class"><span class="keyword">class</span> <span class="title">NameEditorComponent</span> <span class="title">implements</span> <span class="title">OnInit</span> </span>&#123;</span><br><span class="line">    name = <span class="keyword">new</span> FormControl(<span class="string">''</span>);</span><br><span class="line">    ngOnInit() &#123;</span><br><span class="line">        <span class="keyword">this</span>.name.valueChanges.subscribe(<span class="function"><span class="params">val</span> =&gt;</span> &#123;</span><br><span class="line">            <span class="built_in">console</span>.log(val);</span><br><span class="line">        &#125;);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h4 id="替换表单控件的值"><a href="#替换表单控件的值" class="headerlink" title="替换表单控件的值"></a>替换表单控件的值</h4><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">updateName() &#123;</span><br><span class="line">    <span class="keyword">this</span>.name.setValue(<span class="string">'Nancy'</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="把表单控件分组"><a href="#把表单控件分组" class="headerlink" title="把表单控件分组"></a>把表单控件分组</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ng generate component ProfileEditor</span><br></pre></td></tr></table></figure>
+<h4 id="1-创建-FormGroup-实例"><a href="#1-创建-FormGroup-实例" class="headerlink" title="1 - 创建 FormGroup 实例"></a>1 - 创建 FormGroup 实例</h4><p>在组件类中创建一个名叫 profileForm 的属性，并设置为 FormGroup 的一个新实例。要初始化这个 FormGroup，请为构造函数提供一个由控件组成的对象，对象中的每个名字都要和表单控件的名字一一对应。<br><figure class="highlight ts"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> &#123; Component &#125; <span class="keyword">from</span> <span class="string">'@angular/core'</span>;</span><br><span class="line"><span class="keyword">import</span> &#123; FormGroup, FormControl &#125; <span class="keyword">from</span> <span class="string">'@angular/forms'</span>;</span><br><span class="line"></span><br><span class="line"><span class="meta">@Component</span>(&#123;</span><br><span class="line">    selector: <span class="string">'app-profile-editor'</span>,</span><br><span class="line">    templateUrl: <span class="string">'./profile-editor.component.html'</span>,</span><br><span class="line">    styleUrls: [<span class="string">'./profile-editor.component.css'</span>]</span><br><span class="line">&#125;)</span><br><span class="line"><span class="keyword">export</span> <span class="keyword">class</span> ProfileEditorComponent &#123;</span><br><span class="line">    profileForm = <span class="keyword">new</span> FormGroup(&#123;</span><br><span class="line">      <span class="comment">// 对此个人档案表单，要添加两个 FormControl 实例，名字分别为 firstName 和 lastName。</span></span><br><span class="line">        firstName: <span class="keyword">new</span> FormControl(<span class="string">''</span>),</span><br><span class="line">        lastName: <span class="keyword">new</span> FormControl(<span class="string">''</span>),</span><br><span class="line">    &#125;);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h4 id="2-保存表单数据"><a href="#2-保存表单数据" class="headerlink" title="2 保存表单数据"></a>2 保存表单数据</h4><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">form</span> [<span class="attr">formGroup</span>]=<span class="string">"profileForm"</span> (<span class="attr">ngSubmit</span>)=<span class="string">"onSubmit()"</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">button</span> <span class="attr">type</span>=<span class="string">"submit"</span> [<span class="attr">disabled</span>]=<span class="string">"!profileForm.valid"</span>&gt;</span>Submit<span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight ts"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">onSubmit() &#123;</span><br><span class="line">    <span class="comment">// <span class="doctag">TODO:</span> Use EventEmitter with form value</span></span><br><span class="line">    <span class="built_in">console</span>.warn(<span class="keyword">this</span>.profileForm.value);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="3-表单嵌套"><a href="#3-表单嵌套" class="headerlink" title="3 表单嵌套"></a>3 表单嵌套</h4><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">form</span> [<span class="attr">formGroup</span>]=<span class="string">"profileForm"</span> (<span class="attr">ngSubmit</span>)=<span class="string">"onSubmit()"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">label</span>&gt;</span></span><br><span class="line">        First Name:</span><br><span class="line">        <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"text"</span> <span class="attr">formControlName</span>=<span class="string">"firstName"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">label</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">label</span>&gt;</span></span><br><span class="line">        Last Name:</span><br><span class="line">        <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"text"</span> <span class="attr">formControlName</span>=<span class="string">"lastName"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">label</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">formGroupName</span>=<span class="string">"address"</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">h3</span>&gt;</span>Address<span class="tag">&lt;/<span class="name">h3</span>&gt;</span></span><br><span class="line"></span><br><span class="line">        <span class="tag">&lt;<span class="name">label</span>&gt;</span></span><br><span class="line">            Street:</span><br><span class="line">            <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"text"</span> <span class="attr">formControlName</span>=<span class="string">"street"</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">label</span>&gt;</span></span><br><span class="line"></span><br><span class="line">        <span class="tag">&lt;<span class="name">label</span>&gt;</span></span><br><span class="line">            City:</span><br><span class="line">            <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"text"</span> <span class="attr">formControlName</span>=<span class="string">"city"</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">label</span>&gt;</span></span><br><span class="line"></span><br><span class="line">        <span class="tag">&lt;<span class="name">label</span>&gt;</span></span><br><span class="line">            State:</span><br><span class="line">            <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"text"</span> <span class="attr">formControlName</span>=<span class="string">"state"</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">label</span>&gt;</span></span><br><span class="line"></span><br><span class="line">        <span class="tag">&lt;<span class="name">label</span>&gt;</span></span><br><span class="line">            Zip Code:</span><br><span class="line">            <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"text"</span> <span class="attr">formControlName</span>=<span class="string">"zip"</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">label</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">button</span> <span class="attr">type</span>=<span class="string">"submit"</span> [<span class="attr">disabled</span>]=<span class="string">"!profileForm.valid"</span>&gt;</span>Submit<span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">form</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight ts"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">profileForm = <span class="keyword">new</span> FormGroup(&#123;</span><br><span class="line">    firstName: <span class="keyword">new</span> FormControl(<span class="string">''</span>),</span><br><span class="line">    lastName: <span class="keyword">new</span> FormControl(<span class="string">''</span>),</span><br><span class="line">    address: <span class="keyword">new</span> FormGroup(&#123;</span><br><span class="line">        street: <span class="keyword">new</span> FormControl(<span class="string">''</span>),</span><br><span class="line">        city: <span class="keyword">new</span> FormControl(<span class="string">''</span>),</span><br><span class="line">        state: <span class="keyword">new</span> FormControl(<span class="string">''</span>),</span><br><span class="line">        zip: <span class="keyword">new</span> FormControl(<span class="string">''</span>)</span><br><span class="line">    &#125;)</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<h4 id="更新部分值"><a href="#更新部分值" class="headerlink" title="更新部分值"></a>更新部分值</h4><figure class="highlight ts"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">updateProfile() &#123;</span><br><span class="line">    <span class="keyword">this</span>.profileForm.patchValue(&#123;</span><br><span class="line">        firstName: <span class="string">'Nancy'</span>,</span><br><span class="line">        address: &#123;</span><br><span class="line">            street: <span class="string">'123 Drew Street'</span></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="FormBuilder-来生成表单控件"><a href="#FormBuilder-来生成表单控件" class="headerlink" title="FormBuilder 来生成表单控件"></a>FormBuilder 来生成表单控件</h3><ul>
+<li><p>1 导入FormBuilder控件</p>
+<figure class="highlight ts"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> &#123; FormBuilder &#125; <span class="keyword">from</span> <span class="string">'@angular/forms'</span>;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>2 注入服务</p>
+<figure class="highlight ts"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">constructor</span>(<span class="params"><span class="keyword">private</span> fb: FormBuilder</span>) &#123; &#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>3 生成表单控件</p>
+<figure class="highlight ts"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 这里，每个控件名对应的值都是一个数组，这个数组中的第一项是其初始值。</span></span><br><span class="line"><span class="comment">// 你可以只使用初始值来定义控件，但是如果你的控件还需要同步或异步验证器，那就在这个数组中的第二项和第三项提供同步和异步验证器。</span></span><br><span class="line">profileForm = <span class="keyword">this</span>.fb.group(&#123;</span><br><span class="line">    firstName: [<span class="string">''</span>], <span class="comment">// 第一项值是初始化值 第二项和第三项提供同步和异步验证器</span></span><br><span class="line">    lastName: [<span class="string">''</span>],</span><br><span class="line">    address: <span class="keyword">this</span>.fb.group(&#123;</span><br><span class="line">        street: [<span class="string">''</span>],</span><br><span class="line">        city: [<span class="string">''</span>],</span><br><span class="line">        state: [<span class="string">''</span>],</span><br><span class="line">        zip: [<span class="string">''</span>]</span><br><span class="line">    &#125;),</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 与其对应的是完全手动创建</span></span><br><span class="line">profileForm = <span class="keyword">new</span> FormGroup(&#123;</span><br><span class="line">    firstName: <span class="keyword">new</span> FormControl(<span class="string">''</span>),</span><br><span class="line">    lastName: <span class="keyword">new</span> FormControl(<span class="string">''</span>),</span><br><span class="line">    address: <span class="keyword">new</span> FormGroup(&#123;</span><br><span class="line">        street: <span class="keyword">new</span> FormControl(<span class="string">''</span>),</span><br><span class="line">        city: <span class="keyword">new</span> FormControl(<span class="string">''</span>),</span><br><span class="line">        state: <span class="keyword">new</span> FormControl(<span class="string">''</span>),</span><br><span class="line">        zip: <span class="keyword">new</span> FormControl(<span class="string">''</span>)</span><br><span class="line">    &#125;)</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h3 id="简单表单验证"><a href="#简单表单验证" class="headerlink" title="简单表单验证"></a>简单表单验证</h3><ul>
+<li><p>1 导入验证器函数</p>
+<figure class="highlight ts"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> &#123; Validators &#125; <span class="keyword">from</span> <span class="string">'@angular/forms'</span>;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>2 - 把字段设为必填（required）</p>
+<figure class="highlight ts"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">profileForm = <span class="keyword">this</span>.fb.group(&#123;</span><br><span class="line">    firstName: [<span class="string">''</span>, Validators.required], <span class="comment">// 第一项值是初始化值 第二项和第三项提供同步和异步验证器</span></span><br><span class="line">    lastName: [<span class="string">''</span>],</span><br><span class="line">    address: <span class="keyword">this</span>.fb.group(&#123;</span><br><span class="line">        street: [<span class="string">''</span>],</span><br><span class="line">        city: [<span class="string">''</span>],</span><br><span class="line">        state: [<span class="string">''</span>],</span><br><span class="line">        zip: [<span class="string">''</span>]</span><br><span class="line">    &#125;),</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h4 id="显示表单状态"><a href="#显示表单状态" class="headerlink" title="显示表单状态"></a>显示表单状态</h4><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">p</span>&gt;</span></span><br><span class="line">    Form Status: &#123;&#123; profileForm.status &#125;&#125;</span><br><span class="line"><span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<h3 id="使用表单数组管理动态控件"><a href="#使用表单数组管理动态控件" class="headerlink" title="使用表单数组管理动态控件"></a>使用表单数组管理动态控件</h3><figure class="highlight ts"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> &#123; FormArray &#125; <span class="keyword">from</span> <span class="string">'@angular/forms'</span>;</span><br></pre></td></tr></table></figure>
+<p>你可以通过把一组（从零项到多项）控件定义在一个数组中来初始化一个 FormArray。为 profileForm 添加一个 aliases 属性，把它定义为 FormArray 类型。</p>
+<p>使用 FormBuilder.array() 方法来定义该数组，并用 FormBuilder.control() 方法来往该数组中添加一个初始控件。</p>
+<figure class="highlight ts"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">profileForm = <span class="keyword">this</span>.fb.group(&#123;</span><br><span class="line">    aliases: <span class="keyword">this</span>.fb.array([</span><br><span class="line">        <span class="keyword">this</span>.fb.control(<span class="string">''</span>)</span><br><span class="line">    ])</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 得到 aliases</span></span><br><span class="line"><span class="keyword">get</span> aliases() &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">this</span>.profileForm.get(<span class="string">'aliases'</span>) <span class="keyword">as</span> FormArray;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 在 FormArray 中添加值</span></span><br><span class="line">addAlias() &#123;</span><br><span class="line">    <span class="keyword">this</span>.aliases.push(<span class="keyword">this</span>.fb.control(<span class="string">''</span>));</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>在模板中使用和显示这些值<br><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">form</span> [<span class="attr">formGroup</span>]=<span class="string">"profileForm"</span> (<span class="attr">ngSubmit</span>)=<span class="string">"onSubmit()"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">formArrayName</span>=<span class="string">"aliases"</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">h3</span>&gt;</span>Aliases<span class="tag">&lt;/<span class="name">h3</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">button</span> (<span class="attr">click</span>)=<span class="string">"addAlias()"</span>&gt;</span>Add Alias<span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">div</span> *<span class="attr">ngFor</span>=<span class="string">"let address of aliases.controls; let i=index"</span>&gt;</span></span><br><span class="line">            <span class="comment">&lt;!-- The repeated alias template --&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">label</span>&gt;</span></span><br><span class="line">                Alias:</span><br><span class="line">                <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"text"</span> [<span class="attr">formControlName</span>]=<span class="string">"i"</span>&gt;</span></span><br><span class="line">                <span class="comment">&lt;!-- *ngFor 指令对 aliases FormArray 提供的每个 FormControl 进行迭代。</span></span><br><span class="line"><span class="comment">                因为 FormArray 中的元素是匿名的，所以你要把索引号赋值给 i 变量，并且把它传给每个控件的 formControlName 输入属性。 --&gt;</span></span><br><span class="line">            <span class="tag">&lt;/<span class="name">label</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">button</span> <span class="attr">type</span>=<span class="string">"submit"</span> [<span class="attr">disabled</span>]=<span class="string">"!profileForm.valid"</span>&gt;</span>Submit<span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">form</span>&gt;</span></span><br></pre></td></tr></table></figure></p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/angular/" rel="tag"># angular</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/posts/51600/" rel="next" title="css-调整滚动条样式">
+                <i class="fa fa-chevron-left"></i> css-调整滚动条样式
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/posts/9546/" rel="prev" title="angular-表单验证">
+                angular-表单验证 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+            
+              <p class="site-author-name" itemprop="name">pt</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives">
+              
+                  <span class="site-state-item-count">30</span>
+                  <span class="site-state-item-name">posts</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">8</span>
+                  <span class="site-state-item-name">categories</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">17</span>
+                  <span class="site-state-item-name">tags</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/liangyuetian" target="_blank" title="GitHub">
+                      
+                        <i class="fa fa-fw fa-github"></i>GitHub</a>
+                  </span>
+                
+            </div>
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#步骤"><span class="nav-number">1.</span> <span class="nav-text">步骤</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#管理控件的值"><span class="nav-number">1.1.</span> <span class="nav-text">管理控件的值</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-注册-ReactiveFormsModule"><span class="nav-number">1.2.</span> <span class="nav-text">1 注册 ReactiveFormsModule</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-生成并导入一个新的表单控件"><span class="nav-number">1.3.</span> <span class="nav-text">2 - 生成并导入一个新的表单控件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-在模板中注册该控件"><span class="nav-number">1.4.</span> <span class="nav-text">3 - 在模板中注册该控件</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#显示表单控件的值"><span class="nav-number">1.4.1.</span> <span class="nav-text">显示表单控件的值</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#替换表单控件的值"><span class="nav-number">1.4.2.</span> <span class="nav-text">替换表单控件的值</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#把表单控件分组"><span class="nav-number">1.5.</span> <span class="nav-text">把表单控件分组</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-创建-FormGroup-实例"><span class="nav-number">1.5.1.</span> <span class="nav-text">1 - 创建 FormGroup 实例</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-保存表单数据"><span class="nav-number">1.5.2.</span> <span class="nav-text">2 保存表单数据</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-表单嵌套"><span class="nav-number">1.5.3.</span> <span class="nav-text">3 表单嵌套</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#更新部分值"><span class="nav-number">1.5.4.</span> <span class="nav-text">更新部分值</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#FormBuilder-来生成表单控件"><span class="nav-number">1.6.</span> <span class="nav-text">FormBuilder 来生成表单控件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#简单表单验证"><span class="nav-number">1.7.</span> <span class="nav-text">简单表单验证</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#显示表单状态"><span class="nav-number">1.7.1.</span> <span class="nav-text">显示表单状态</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#使用表单数组管理动态控件"><span class="nav-number">1.8.</span> <span class="nav-text">使用表单数组管理动态控件</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; Tue Jan 01 2019 08:00:00 GMT+0800 (GMT+08:00) &mdash; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">pt</span>
+
+  
+</div>
+
+
+  <div class="powered-by">Powered by <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a></div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">Theme &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Gemini</a> v5.1.4</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

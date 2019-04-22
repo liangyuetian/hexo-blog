@@ -15,8 +15,20 @@ timezone: Asia/Shanghai
 ## If your site is put in a subdirectory, set url as 'http://yoursite.com/child' and root as '/child/'
 url: https://liangyuetian.github.io/
 root: /
-permalink: :year/:month/:day/:title/
+# permalink: :year/:month/:day/:title/
+permalink: posts/:abbrlink/  # “posts/” 可自行更换
 permalink_defaults:
+  lang: zh
+
+# abbrlink config
+abbrlink:
+  alg: crc32  # 算法：crc16(default) and crc32
+  rep: hex    # 进制：dec(default) and hex
+# 可选择模式：
+# crc16 & hex
+# crc16 & dec
+# crc32 & hex
+# crc32 & dec
 
 # Directory
 source_dir: source
@@ -27,6 +39,7 @@ category_dir: categories
 code_dir: downloads/code
 i18n_dir: :lang
 skip_render:
+  - '*.html'
 
 # Writing
 new_post_name: :title.md # File name of new posts
@@ -85,3 +98,7 @@ server:
   port: 4001
   compress: true
   header: true
+
+search:
+  path: search.xml
+  field: post

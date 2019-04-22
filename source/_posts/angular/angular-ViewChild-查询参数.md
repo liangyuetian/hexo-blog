@@ -6,9 +6,10 @@ playlist:
     url: //music.163.com/song/media/outer/url?id=640866.mp3
     cover: >-
       //p2.music.126.net/4gzU-pTgbwBLHwx4-CJcgw==/903798558032135.jpg?param=90y90
-date: 2019-04-03 22:55:41
 tags: angualr
 categories: Angular
+abbrlink: 25813
+date: 2019-04-03 22:55:41
 ---
 
 ViewChild ContentChild 系列的查询参数，可以灵活的获得对应实例

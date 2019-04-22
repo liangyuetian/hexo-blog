@@ -6,9 +6,10 @@ playlist:
     url: //music.163.com/song/media/outer/url?id=640866.mp3
     cover: >-
       //p2.music.126.net/4gzU-pTgbwBLHwx4-CJcgw==/903798558032135.jpg?param=90y90
+categories: Css
+abbrlink: 3901
 date: 2019-03-24 21:55:17
 tags:
-categories: Css
 ---
 
 用JavaScript获取伪元素(Pseudo-Element)属性的方法

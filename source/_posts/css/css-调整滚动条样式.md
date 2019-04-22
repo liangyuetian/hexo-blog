@@ -6,9 +6,10 @@ playlist:
     url: //music.163.com/song/media/outer/url?id=640866.mp3
     cover: >-
       //p2.music.126.net/4gzU-pTgbwBLHwx4-CJcgw==/903798558032135.jpg?param=90y90
-date: 2019-03-03 18:32:09
-tags: css 
+tags: css
 categories: Css
+abbrlink: 51600
+date: 2019-03-03 18:32:09
 ---
 
 一直感觉angular中文文档的滚动条样式非常棒

@@ -6,12 +6,13 @@ playlist:
     url: //music.163.com/song/media/outer/url?id=640866.mp3
     cover: >-
       //p2.music.126.net/4gzU-pTgbwBLHwx4-CJcgw==/903798558032135.jpg?param=90y90
-date: 2019-03-28 23:21:14
 tags:
   - angular
   - ngTemplateOutlet
   - ContenChildren
 categories: Angular
+abbrlink: 4568
+date: 2019-03-28 23:21:14
 ---
 
 angular ContentChild 与 ContenChildren 使用方法
