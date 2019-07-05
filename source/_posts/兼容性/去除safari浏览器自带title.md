@@ -6,9 +6,10 @@ playlist:
     url: //music.163.com/song/media/outer/url?id=640866.mp3
     cover: >-
       //p2.music.126.net/4gzU-pTgbwBLHwx4-CJcgw==/903798558032135.jpg?param=90y90
-date: 2019-06-26 11:51:33
 tags: 兼容性
 categories: 兼容性
+abbrlink: 91a808b4
+date: 2019-06-26 11:51:33
 ---
 
 去除safari浏览器自带title

@@ -6,9 +6,10 @@ playlist:
     url: //music.163.com/song/media/outer/url?id=640866.mp3
     cover: >-
       //p2.music.126.net/4gzU-pTgbwBLHwx4-CJcgw==/903798558032135.jpg?param=90y90
-date: 2019-07-05 11:31:28
 tags: git
 categories: Git
+abbrlink: 35828afe
+date: 2019-07-05 11:31:28
 ---
 
 重写历史提交记录
@@ -43,3 +44,4 @@ git rebase --abort
 
 参考资料[https://www.jianshu.com/p/0f1fbd50b4be](https://www.jianshu.com/p/0f1fbd50b4be)
 参考资料[https://blog.csdn.net/furzoom/article/details/90670893](https://blog.csdn.net/furzoom/article/details/90670893)
+参考资料[https://cloud.tencent.com/developer/article/1352623](https://cloud.tencent.com/developer/article/1352623)

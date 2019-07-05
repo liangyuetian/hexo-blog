@@ -6,6 +6,7 @@ playlist:
     url: //music.163.com/song/media/outer/url?id=640866.mp3
     cover: >-
       //p2.music.126.net/4gzU-pTgbwBLHwx4-CJcgw==/903798558032135.jpg?param=90y90
+abbrlink: e6c1fad9
 date: 2019-06-03 16:54:47
 tags:
 categories:
