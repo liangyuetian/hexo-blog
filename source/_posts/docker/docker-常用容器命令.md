@@ -8,8 +8,8 @@ playlist:
       //p2.music.126.net/4gzU-pTgbwBLHwx4-CJcgw==/903798558032135.jpg?param=90y90
 abbrlink: 578569c8
 date: 2019-07-05 13:34:24
-tags:
-categories:
+tags: docker
+categories: Docker
 ---
 
 ```bash
