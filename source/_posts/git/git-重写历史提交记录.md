@@ -7,8 +7,8 @@ playlist:
     cover: >-
       //p2.music.126.net/4gzU-pTgbwBLHwx4-CJcgw==/903798558032135.jpg?param=90y90
 date: 2019-07-05 11:31:28
-tags:
-categories:
+tags: git
+categories: Git
 ---
 
 重写历史提交记录
