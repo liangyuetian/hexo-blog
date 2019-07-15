@@ -21,15 +21,15 @@ date: 2019-07-05 11:31:28
 ```bash
 git rebase -i HEAD~3
 ```
-{% asset_img 1.jpg %}
+{% asset_img 1.png %}
 得到如上的提交信息，值得注意的是： 提交信息是倒叙排列的
 
 ### 第二步
 我们将需要修改的那条记录前面的pick 修改成edit
-{% asset_img 2.jpg %}
-{% asset_img 3.jpg %}
+{% asset_img 2.png %}
+{% asset_img 3.png %}
 得到如下结果
-{% asset_img 4.jpg %}
+{% asset_img 4.png %}
 然后按着做就行了
 如果想修改用户邮箱
 则执行
