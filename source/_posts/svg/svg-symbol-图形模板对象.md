@@ -6,9 +6,10 @@ playlist:
     url: //music.163.com/song/media/outer/url?id=640866.mp3
     cover: >-
       //p2.music.126.net/4gzU-pTgbwBLHwx4-CJcgw==/903798558032135.jpg?param=90y90
-date: 2019-04-22 23:00:01
 tags: svg
 categories: SVG
+abbrlink: f3044b5d
+date: 2019-04-22 23:00:01
 ---
 
 [官方文档](https://developer.mozilla.org/zh-CN/docs/Web/SVG/Element/symbol)
