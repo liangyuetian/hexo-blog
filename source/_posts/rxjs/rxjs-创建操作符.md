@@ -10,7 +10,7 @@ playlist:
     url: //music.163.com/song/media/outer/url?id=1327456179.mp3
     cover: >-
       //p2.music.126.net/Ngh65GwhHtufNRSs9KgEIA==/109951163681417636.jpg?param=90y90
-abbrlink: 52546
+abbrlink: 2625071920
 date: 2019-01-01 23:20:47
 ---
 

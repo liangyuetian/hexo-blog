@@ -11,7 +11,7 @@ tags:
   - ngTemplateOutlet
   - ContenChildren
 categories: Angular
-abbrlink: 4568
+abbrlink: 2947722764
 date: 2019-03-28 23:21:14
 ---
 
