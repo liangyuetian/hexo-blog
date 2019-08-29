@@ -1,9 +1,9 @@
 ---
-layout: regex
-title:  \b 和 \B
-date: 2019-08-26 22:43:44
+title: \b 和 \B
 tags: regex
 categories: RegExp
+abbrlink: d34dbb50
+date: 2019-08-26 22:43:44
 ---
 
 \b 是单词边界，具体就是 \w 与 \W 之间的位置
