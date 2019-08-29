@@ -8,7 +8,7 @@ subtitle: 凉月-天的博客
 description:
 keywords:
 author: pt
-language: zh-CN
+language: zh-Hans
 timezone: Asia/Shanghai
 
 # URL
@@ -23,7 +23,7 @@ permalink_defaults:
 # abbrlink config
 abbrlink:
   alg: crc32  # 算法：crc16(default) and crc32
-  rep: hex    # 进制：dec(default) and hex
+  # rep: hex    # 进制：dec(default 10进制) and hex (16进制)
 # 可选择模式：
 # crc16 & hex
 # crc16 & dec
