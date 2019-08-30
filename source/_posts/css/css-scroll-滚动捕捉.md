@@ -1,7 +1,7 @@
 ---
 title: css-scroll-滚动捕捉
 tags: css 滚动捕捉 scroll
-categories: Css
+categories: CSS
 abbrlink: 3578512530
 date: 2019-08-30 16:08:11
 ---
