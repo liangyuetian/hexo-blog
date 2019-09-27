@@ -20,5 +20,5 @@ fit-content
 ### fill-available
 {% asset_img fill-available.gif %}
 
-### fill-content
+### fit-content
 {% asset_img fit-content.gif %}
