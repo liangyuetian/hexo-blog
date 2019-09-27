@@ -1,16 +1,17 @@
 ---
-title: flutter-数据存储
+title: flutter-本地存储
 abbrlink: 1340560355
 date: 2019-09-27 11:35:13
 tags:
 categories:
 ---
 
-做过android开发的人都知道，可以利用SharedPreferences这个轻量级的存储类来保存键值对信息，在Flutter中，我们可以使用shared_preferences库来同时支持Android和ios平台。
+在Flutter中，我们使用shared_preferences库来同时支持Android和ios平台。
+相当于浏览器的 localStorage
 
 <!-- more -->
 
-[Flutter开发者文档-shared_preferences](http://flutter.link/2018/04/13/Flutter%E4%B8%AD%E7%9A%84%E6%9C%AC%E5%9C%B0%E5%AD%98%E5%82%A8/)
+[Flutter开发者文档-数据储存](http://flutter.link/2018/04/13/Flutter%E4%B8%AD%E7%9A%84%E6%9C%AC%E5%9C%B0%E5%AD%98%E5%82%A8/)
 
 ### 1 在pubspec.yaml文件中添加依赖
 ```yaml
