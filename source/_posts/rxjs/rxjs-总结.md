@@ -12,7 +12,8 @@ date: 2019-12-12 23:20:47
 > RxJS 是使用 Observables 的响应式编程的库，它使编写异步或基于回调的代码更容易。
 
 [中文官网](https://cn.rx.js.org/)
-[用动画的方式演示了大部分Rxjs的Operator的执行过程](https://reactive.how/rxjs/)
+[新版官网](https://rxjs.dev/)
+[用动画的方式演示了大部分Rxjs的Operator的执行过程](https://reactive.how)
 
 RxJS 是一个库，它通过使用 observable 序列来编写异步和基于事件的程序。
 它提供了一个核心类型 Observable，通过操作符可以把异步事件作为集合来处理。
@@ -149,6 +150,8 @@ subject.next(2);
 | Rx.Scheduler.queue | 当前事件帧中的队列调度(蹦床调度器)。用于迭代操作。|
 | Rx.Scheduler.asap | 微任务的队列调度，它使用可用的最快速的传输机制，比如 Node.js 的 process.nextTick() 或 Web Worker 的 MessageChannel 或 setTimeout 或其他。用于异步转换。|
 | Rx.Scheduler.async | 使用 setInterval 的调度。用于基于时间的操作符。|
+
+
 
 # 其他语言实现
 
