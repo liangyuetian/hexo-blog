@@ -133,10 +133,6 @@ subject.next(2);
 | Rx.Scheduler.async | 使用 setInterval 的调度。用于基于时间的操作符。|
 
 
-
-## Observable(可观察对象)
-> Observables 是多个值的惰性推送集合
-
 # 其他语言实现
 
 * [RxJava](https://github.com/ReactiveX/RxJava)
