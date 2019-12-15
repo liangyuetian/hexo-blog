@@ -69,25 +69,6 @@ stream$.subscribe((val) => {
 stream$.unsubscribe()
 ```
 
-## Observer 观察者
-
-> 观察者是由 Observable 发送的值的消费者
-
-观察者只是一组回调函数的集合，每个回调函数对应一种 Observable 发送的通知类型：next、error 和 complete 
-```js
-import {Observable} from "rxjs";
-
-let stream$ = new Observable();
-
-let observer = {
-  next: x => console.log('Observer got a next value: ' + x),
-  error: err => console.error('Observer got an error: ' + err),
-  complete: () => console.log('Observer got a complete notification'),
-};
-
-stream$.subscribe(observer);
-```
-
 ## Subscription 订阅
 
 > Subscription 是表示可清理资源的对象，通常是 Observable 的执行。Subscription 有一个重要的方法，即 unsubscribe，它不需要任何参数，只是用来清理由 Subscription 占用的资源。
