@@ -8,18 +8,16 @@ date: 2019-12-12 23:20:47
 ---
 
 # Rxjs 是什么
-用于 JavaScript 的 ReactiveX 库。
-> RxJS 是使用 Observables 的响应式编程的库，它使编写异步或基于回调的代码更容易。
-
 [中文官网](https://cn.rx.js.org/)
 [新版官网](https://rxjs.dev/)
 [用动画的方式演示了大部分Rxjs的Operator的执行过程](https://reactive.how)
 
+RxJS 用于 JavaScript 的 ReactiveX 库。
 RxJS 是一个库，它通过使用 observable 序列来编写异步和基于事件的程序。
 它提供了一个核心类型 Observable，通过操作符可以把异步事件作为集合来处理。
+> RxJS 是使用 Observables 的响应式编程的库，它使编写异步或基于回调的代码更容易。
 
-# 核心概念
-
+## 核心概念
 * Observable (可观察对象)：表示一个概念，这个概念是一个可调用的未来值或事件的集合。
 * Observer (观察者)：一个回调函数的集合，它知道如何去监听由 Observable 提供的值。
 * Subscription (订阅)：表示 Observable 的执行，主要用于取消 Observable 的执行。
@@ -50,7 +48,7 @@ RxJS 中的Observable 一个新的 JavaScript 推送体系。Observable 是多�
 import {Observable} from "rxjs";
 
 // 创建
-let stream$ = new Observable(function(observer) {
+let stream$ = new Observable(function(observer) { // observer 是迭代器
     observer.next(1); // 发送一个值
     observer.next(2);
     setTimeout(() => {
@@ -132,6 +130,13 @@ subject.next(2);
 | Rx.Scheduler.asap | 微任务的队列调度，它使用可用的最快速的传输机制，比如 Node.js 的 process.nextTick() 或 Web Worker 的 MessageChannel 或 setTimeout 或其他。用于异步转换。|
 | Rx.Scheduler.async | 使用 setInterval 的调度。用于基于时间的操作符。|
 
+# 为什么要学习 RxJs
+
+* 如何控制大量代码的复杂度
+* 如何保持代码的可读
+* 如何处理异步操作
+
+RxJs 的价值在于提供了一种不一样的编程方式
 
 # 其他语言实现
 
