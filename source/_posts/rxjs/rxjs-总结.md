@@ -25,6 +25,9 @@ RxJS 是一个库，它通过使用 observable 序列来编写异步和基于事
 * Subject (主体)： 相当于 EventEmitter，并且是将值或事件多路推送给多个 Observer 的唯一方式。
 * Schedulers(调度器)：用来控制并发并且是中央集权的调度员，允许我们在发生计算时进行协调，例如 setTimeout 或 requestAnimationFrame 或其他。
 
+## Observable(可观察对象)
+> Observables 是多个值的惰性推送集合
+
 # 其他语言实现
 
 * [RxJava](https://github.com/ReactiveX/RxJava)
