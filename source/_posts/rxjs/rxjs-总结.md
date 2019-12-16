@@ -236,11 +236,132 @@ setTimeout(() => {
 
 ## 转换 
 
-### map 
-### scan 
-### map 
-### map 
-### map 
+### map 将当前值映射为另一个值
+
+```typescript
+import {fromEvent} from "rxjs";
+import {map} from 'rxjs/operators';
+
+let clicks$ = fromEvent(document, 'click');
+let positions$ = clicks$.pipe(map(ev => ev.clientX));
+positions$.subscribe(x => console.log(x));
+```
+
+### pluck map的快捷方式
+
+```typescript
+import {fromEvent} from "rxjs";
+import {pluck} from 'rxjs/operators';
+
+let clicks$ = fromEvent(document, 'click');
+let positions$ = clicks$.pipe(pluck('target', 'tagName'));
+positions$.subscribe(x => console.log(x));
+```
+
+### scan 累加器，类似于reduce
+
+```typescript
+import { fromEvent } from 'rxjs';
+import { scan, mapTo } from 'rxjs/operators';
+
+const clicks = fromEvent(document, 'click');
+const ones = clicks.pipe(mapTo(1));
+const seed = 0;
+const count = ones.pipe(scan((acc, one) => acc + one, seed));
+count.subscribe(x => console.log(x));
+```
+
+### pairwise 将发出的值每两个分一组
+
+```typescript
+import { fromEvent } from 'rxjs';
+import { pairwise, map } from 'rxjs/operators';
+
+const clicks = fromEvent(document, 'click');
+const pairs = clicks.pipe(pairwise());
+const distance = pairs.pipe(
+  map(pair => {
+    const x0 = pair[0].clientX;
+    const y0 = pair[0].clientY;
+    const x1 = pair[1].clientX;
+    const y1 = pair[1].clientY;
+    return Math.sqrt(Math.pow(x0 - x1, 2) + Math.pow(y0 - y1, 2));
+  }),
+);
+distance.subscribe(x => console.log(x));
+```
+
+### buffer / bufferCount / bufferTime / bufferToggle
+
+#### buffer 
+> 从过去收集值作为一个数组，并且仅在另一个Observable发出时才发出该数组。
+
+每次点击页面输出定时器走了多少次
+```typescript
+import { fromEvent, interval } from 'rxjs';
+import { buffer } from 'rxjs/operators';
+
+let clicks$ = fromEvent(document, 'click');
+let interval$ = interval(1000);
+let buffered = interval$.pipe(buffer(clicks$));
+buffered.subscribe(x => console.log(x));
+// [0, 1]
+// [2]
+// [3, 4]
+```
+
+#### bufferCount
+> 缓存发出的值，知道达到制定的最大值
+
+每点击两次输出 [MouseEvent, MouseEvent]
+```typescript
+import { fromEvent } from 'rxjs';
+import { bufferCount } from 'rxjs/operators';
+
+let clicks$ = fromEvent(document, 'click');
+let bufferCount$ = clicks$.pipe(bufferCount(2))
+bufferCount$.subscribe(x => console.log(x));
+
+
+```
+
+#### bufferTime 
+> 在特定时间段内缓冲源Observable值。
+
+每秒发出一系列最近的点击事件
+```typescript
+import { fromEvent } from 'rxjs';
+import { bufferTime } from 'rxjs/operators';
+
+const clicks = fromEvent(document, 'click');
+const buffered = clicks.pipe(bufferTime(1000));
+buffered.subscribe(x => console.log(x));
+```
+
+每隔5秒，从接下来的2秒发出点击事件
+```typescript
+import { fromEvent } from 'rxjs';
+import { bufferTime } from 'rxjs/operators';
+
+const clicks = fromEvent(document, 'click');
+const buffered = clicks.pipe(bufferTime(2000, 5000));
+buffered.subscribe(x => console.log(x));
+```
+
+#### bufferToggle
+
+每隔一秒钟，从接下来的500ms发出点击事件
+```typescript
+import { fromEvent, interval, EMPTY } from 'rxjs';
+import { bufferToggle } from 'rxjs/operators';
+
+const clicks = fromEvent(document, 'click');
+const openings = interval(1000);
+const buffered = clicks.pipe(bufferToggle(openings, i =>
+  i % 2 ? interval(500) : EMPTY
+));
+buffered.subscribe(x => console.log(x));
+```
 
 # 其他语言实现
 
