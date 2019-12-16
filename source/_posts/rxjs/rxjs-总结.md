@@ -32,7 +32,7 @@ RxJS 是一个库，它通过使用 observable 序列来编写异步和基于事
 大家都比较熟悉观察者模式，是由两种角色构成的：数据生产者 (Producer）与数据消费者 (Consumer)
 
 | 生产者 | 消费者 |
-| - | - | - |
+| ---- | ---- |
 | 拉取 | 被动的: 当被请求时产生数据。	主动的: 决定何时请求数据。|
 | 推送 | 主动的: 按自己的节奏产生数据。	被动的: 对收到的数据做出反应。|
 
@@ -125,6 +125,7 @@ subject.next(2);
 内置调度器一般分为4种
 
 | 调度器 | 目的 |
+| ---- | ---- |
 | null | 不传递任何调度器的话，会以同步递归的方式发送通知。用于定时操作或尾递归操作。|
 | Rx.Scheduler.queue | 当前事件帧中的队列调度(蹦床调度器)。用于迭代操作。|
 | Rx.Scheduler.asap | 微任务的队列调度，它使用可用的最快速的传输机制，比如 Node.js 的 process.nextTick() 或 Web Worker 的 MessageChannel 或 setTimeout 或其他。用于异步转换。|
@@ -191,7 +192,42 @@ promise$.subscribe((res) => {
 
 ```
 
-### 
+### fromEvent 订阅事件
+
+```typescript
+import {Observable, fromEvent} from "rxjs";
+
+let event$: Observable<any> = fromEvent(document.body, 'click')
+event$.subscribe((e: Event) => {
+  console.log('事件流', e)
+})
+
+```
+### fromEventPattern 自定义定义事件与移除事件
+
+```typescript
+import {fromEventPattern, Subscription} from "rxjs";
+
+function addClickHandler(handler) {
+  console.log('创建监听')
+  document.addEventListener('click', handler);
+}
+
+function removeClickHandler(handler) {
+  console.log('移除监听')
+  document.removeEventListener('click', handler);
+}
+
+let clicks = fromEventPattern(
+  addClickHandler,
+  removeClickHandler
+);
+const click$: Subscription = clicks.subscribe(x => console.log(x));
+setTimeout(() => {
+  click$.unsubscribe()
+}, 1000)
+```
+
 
 
 # 其他语言实现
