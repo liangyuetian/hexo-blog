@@ -1,5 +1,5 @@
 ---
-title: RxJs总结
+title: RxJs:关于异步场景的实践与探索
 tags:
   - null
 categories: RxJs
@@ -7,14 +7,37 @@ abbrlink: 165656931
 date: 2019-12-12 23:20:47
 ---
 
+# 前言
+
+世界在进步，宣扬了这么多年的前端金科玉律被推翻，
+前端飞速发展，而我们只有保持不断学习，才能不那么迷茫
+
+而异步编程又是前端的重中之重，这里大家介绍一种新颖的前端的异步编程方法
+
+# 关于异步
+> 异步是一个关于现在和将来的问题，现在执行的代码和将来执行的代码。
+
+关于现阶段的异步编程的方法：
+* 回调函数
+* 事件监听
+* 观察者
+* Promise
+* Generator
+* async/await
+
+
 # Rxjs 是什么
+
+
+
+官方介绍
 [中文官网](https://cn.rx.js.org/)
 [新版官网](https://rxjs.dev/)
 [用动画的方式演示了大部分Rxjs的Operator的执行过程](https://reactive.how)
 
-RxJS 用于 JavaScript 的 ReactiveX 库。
-RxJS 是一个库，它通过使用 observable 序列来编写异步和基于事件的程序。
-它提供了一个核心类型 Observable，通过操作符可以把异步事件作为集合来处理。
+* RxJS 用于 JavaScript 的 ReactiveX 库。
+* RxJS 是一个库，它通过使用 observable 序列来编写异步和基于事件的程序。
+* 它提供了一个核心类型 Observable，通过操作符可以把异步事件作为集合来处理。
 > RxJS 是使用 Observables 的响应式编程的库，它使编写异步或基于回调的代码更容易。
 
 ## 核心概念
@@ -130,6 +153,10 @@ subject.next(2);
 | Rx.Scheduler.queue | 当前事件帧中的队列调度(蹦床调度器)。用于迭代操作。|
 | Rx.Scheduler.asap | 微任务的队列调度，它使用可用的最快速的传输机制，比如 Node.js 的 process.nextTick() 或 Web Worker 的 MessageChannel 或 setTimeout 或其他。用于异步转换。|
 | Rx.Scheduler.async | 使用 setInterval 的调度。用于基于时间的操作符。|
+
+# RxJs 的简单场景
+
+# RxJs 的复杂场景
 
 # RxJs 的基本用法
 
