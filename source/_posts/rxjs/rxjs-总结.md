@@ -133,7 +133,7 @@ subject.next(2);
 
 # RxJs 的基本用法
 
-## 创建
+## 创建 Observable
 
 ### 创建一个定时器
 
@@ -191,6 +191,11 @@ promise$.subscribe((res) => {
 });
 
 ```
+```typescript
+import {fromPromise} from 'rxjs/internal-compatibility';
+
+fromPromise(fetch('/users'));
+```
 
 ### fromEvent 订阅事件
 
@@ -203,6 +208,7 @@ event$.subscribe((e: Event) => {
 })
 
 ```
+
 ### fromEventPattern 自定义定义事件与移除事件
 
 ```typescript
@@ -228,7 +234,13 @@ setTimeout(() => {
 }, 1000)
 ```
 
+## 转换 
 
+### map 
+### scan 
+### map 
+### map 
+### map 
 
 # 其他语言实现
 
