@@ -130,16 +130,69 @@ subject.next(2);
 | Rx.Scheduler.asap | 微任务的队列调度，它使用可用的最快速的传输机制，比如 Node.js 的 process.nextTick() 或 Web Worker 的 MessageChannel 或 setTimeout 或其他。用于异步转换。|
 | Rx.Scheduler.async | 使用 setInterval 的调度。用于基于时间的操作符。|
 
-# 为什么要学习 RxJs
+# RxJs 的基本用法
 
-* 如何控制大量代码的复杂度
-* 如何保持代码的可读
-* 如何处理异步操作
+## 创建
 
+### 创建一个定时器
 
+```typescript
+import {Observable, interval} from 'rxjs';
 
+const stream$: Observable<any> = interval(1000);
+stream$.subscribe((count: number) => {
+  console.log(count); // 每隔1000毫秒输出 0 1 2 3 ...
+});
+```
 
-RxJs 的价值在于提供了一种不一样的编程方式
+### 创建一个延时定时器
+```typescript
+import {Observable, timer} from 'rxjs';
+
+const timer$: Observable<any> = timer(1000);
+timer$.subscribe(() => {
+  // 1000毫秒之后触发
+});
+```
+
+### defer 延迟创建
+> 有时候我们希望Observable不要太早创建，另一方面我们又希望Observable尽可能的早创建，这个是一个矛盾的需求，解决这个矛盾需求的方式，就是依然创建一个Observable。
+> 但是这个Observable只是一个代理(Proxy),在创建之时并不会做分配资源的工作，
+> 只有被订阅的时候，才会去创建真正占用资源的Observable，之前产生的代理Observable会把所有工作都转交给真正占用资源的Observable
+
+defer允许你创建一个 Observable 当且仅当它被订阅的时候，并且为每个订阅者创建新的 Observable
+
+```typescript
+import {defer, of} from 'rxjs';
+
+const of$ = of(1, 2, 3); // 
+const defer$ = defer(() => of$);
+
+```
+
+### fromPromise 将promise转化为Observable
+
+```typescript
+import {fromPromise} from 'rxjs/internal-compatibility';
+
+const promise$ = fromPromise(new Promise(((resolve, reject) => {
+  if (Math.random() > 0.5) {
+    resolve('大于0.5');
+  } else {
+    reject('小于0.5');
+  }
+})));
+
+promise$.subscribe((res) => {
+  console.log(res);
+}, error => {
+  console.log('被拒绝', error);
+});
+
+```
+
+### 
+
 
 # 其他语言实现
 
