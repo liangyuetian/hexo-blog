@@ -22,8 +22,8 @@ git log -L :countDownDiff:date.js # 查看这个文件下，countDownDiff函数�
 
 ### 在commit记录中的文件中搜索
 ```
-git log --grep eslint # 在 文件 中搜索关键词
-git log --grep -n eslint # -n 显示行号
-git grep --count  'pay_box' # --count 简要的输出，只输出文件路径
+git grep eslint # 在 文件 中搜索关键词
+git grep -n eslint # -n 显示行号
+git grep --count 'pay_box' # --count 简要的输出，只输出文件路径
 git grep -p 'pay_box' # -p 输出前后字符，用来判断这个关键字的类型
 ```
