@@ -23,7 +23,7 @@ https://github.com/dongyuanxin/theme-bmw.git
 git submodule 使用
 添加
 ```bash
-git submodule add  https://github.com/iissnan/hexo-theme-next themes/next
+git submodule add https://github.com/theme-next/hexo-theme-next.git themes/next
 ```
 删除
 ```bash
