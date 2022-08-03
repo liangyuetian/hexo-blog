@@ -29,30 +29,37 @@ scheme: Gemini
 
 
 footer:
-  # Specify the date when the site was setup.
-  # If not defined, current year will be used.
+  # Specify the date when the site was setup. If not defined, current year will be used.
   #since: 2015
 
   # Icon between year and copyright info.
-  icon: user
+  icon:
+    # Icon name in Font Awesome. See: https://fontawesome.com/icons
+    name: fa fa-heart
+    # If you want to animate the icon, set it to true.
+    animated: true
+    # Change the color of icon, using Hex Code.
+    color: "#ff0000"
 
-  # If not defined, will be used `author` from Hexo main config.
-  copyright: "哈哈哈"
-  # -------------------------------------------------------------
-  # Hexo link (Powered by Hexo).
+  # If not defined, `author` from Hexo `_config.yml` will be used.
+  copyright:
+
+  # Powered by Hexo & NexT
   powered: true
 
-  theme:
-    # Theme & scheme info link (Theme - NexT.scheme).
+  # Beian ICP and gongan information for Chinese users. See: https://beian.miit.gov.cn, http://www.beian.gov.cn
+  beian:
     enable: true
-    # Version info of NexT after scheme info (vX.X.X).
-    version: true
-  # -------------------------------------------------------------
-  # Any custom text can be defined here.
-  #custom_text: Hosted by <a target="_blank" href="https://pages.github.com">GitHub Pages</a>
+    icp: 京ICP备2022008673号-1
+    # The digit in the num of gongan beian.
+    gongan_id: 2022008673
+    # The full num of gongan beian.
+    gongan_num:
+    # The icon for gongan beian. See: http://www.beian.gov.cn/portal/download
+    gongan_icon_url: /images/备案图标.png
 
 toc:
-  enable: false
+  enable: true
 
   # Automatically add list number to toc.
   number: true
@@ -102,21 +109,21 @@ font:
   global:
     external: true
     family: Lato
-    size: 18
+    size: 14px
 
   # Font settings for Headlines (h1, h2, h3, h4, h5, h6).
   # Fallback to `global` font settings.
   headings:
     external: true
     family:
-    size: 16
+    size: 16px
 
   # Font settings for posts.
   # Fallback to `global` font settings.
   posts:
     external: true
     family:
-    size: 16
+    size: 16px
   # Font settings for Logo.
   # Fallback to `global` font settings.
   logo:
