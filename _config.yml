@@ -95,6 +95,7 @@ deploy:
   type: git
   repository: https://github.com/liangyuetian/liangyuetian.github.io.git
   branch: master
+  token: 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
 server:
   port: 4001
   compress: true
