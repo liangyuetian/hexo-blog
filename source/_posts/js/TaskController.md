@@ -6,7 +6,7 @@ tags:
 categories:
 ---
 
-TaskController接口代表一个控制器对象，可用于中止和更改一个或多个优先任务的优先级。
+TaskController 接口代表一个控制器对象，可用于中止和更改一个或多个优先任务的优先级。
 
 <!-- more -->
 
