@@ -11,7 +11,8 @@
     "build": "hexo generate",
     "clean": "hexo clean",
     "deploy": "hexo deploy",
-    "server": "hexo server"
+    "server": "hexo server",
+    "build:tt": "npm run build && rm -rf ../pt_hexo_blog/ && cp -rf public/ ../pt_hexo_blog"
   },
   "dependencies": {
     "david": "^12.0.0",
