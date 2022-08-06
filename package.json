@@ -8,11 +8,12 @@
   "scripts": {
     "start": "hexo server",
     "d": "hexo clean && hexo g && hexo d",
-    "build": "hexo generate",
-    "clean": "hexo clean",
+    "generate": "hexo generate",
     "deploy": "hexo deploy",
     "server": "hexo server",
-    "build:tt": "npm run build && rm -rf ../pt_hexo_blog/ && cp -rf public/ ../pt_hexo_blog"
+    "clean": "hexo clean && rm -rf ../pt_hexo_blog/",
+    "cp": "cp -rf public/ ../pt_hexo_blog",
+    "build": "npm run clean && npm run generate && npm run cp"
   },
   "dependencies": {
     "david": "^12.0.0",
