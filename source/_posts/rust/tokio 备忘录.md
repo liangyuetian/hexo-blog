@@ -11,6 +11,10 @@ date: 2022-08-06 21:05:25
 学习 Tokio 的备忘录，记录一下常用代码
 Tokio 专为 IO 密集型应用程序而设计，其中每个单独的任务大部分时间都在等待 IO
 
+内容来源：
+[https://tokio.rs/tokio/tutorial](https://tokio.rs/tokio/tutorial)
+[https://github.com/rustlang-cn/Rustt/tree/main/Books](https://github.com/rustlang-cn/Rustt/tree/main/Books)
+
 <!-- more -->
 
 # 基本使用
@@ -267,6 +271,219 @@ use tokio::io::{self, AsyncWriteExt};
 async fn main() -> io::Result<()> {
     let mut stderr = io::stderr();
     stderr.write_all(b"Print some error here.").await?;
+    Ok(())
+}
+```
+
+
+
+
+## 数据帧 Frame
+
+通过帧可以将字节流转换成帧组成的流。每个帧就是一个数据单元，例如客户端发送的一次请求就是一个帧。
+
+<details>
+<summary>展开查看</summary>
+<pre>
+
+<code>
+use mini_redis::{Frame, Result};
+use mini_redis::frame::Error::Incomplete;
+use bytes::Buf;
+use std::io::Cursor;
+fn parse_frame(&mut self) -> Result<Option<Frame>> {
+let mut buf = Cursor::new(&self.buffer[..]); // 创建 `T: Buf` 类型
+    // 检查是否读取了足够解析出一个帧的数据
+    match Frame::check(&mut buf) {
+        Ok(_) => {
+            // 获取组成该帧的字节数
+            let len = buf.position() as usize;
+
+            // 在解析开始之前，重置内部的游标位置
+            buf.set_position(0);
+
+            // 解析帧
+            let frame = Frame::parse(&mut buf)?;
+
+            // 解析完成，将缓冲区该帧的数据移除
+            self.buffer.advance(len);
+
+            // 返回解析出的帧
+            Ok(Some(frame))
+        }
+        // 缓冲区的数据不足以解析出一个完整的帧
+        Err(Incomplete) => Ok(None),
+        // 遇到一个错误
+        Err(e) => Err(e.into()),
+    }
+}
+</code></pre>
+</details>
+
+
+# 并发代码的其他执行方法
+
+## select!
+
+在实际使用时，一个重要的场景就是同时等待多个异步操作的结果，并且对其结果进行进一步处理，
+在本章节，我们来看看，强大的 select! 是如何帮助咱们更好的控制多个异步操作并发执行的。
+
+```rust
+use tokio::sync::oneshot;
+
+async fn some_operation() -> String {
+    // 在这里执行一些操作...
+}
+#[tokio::main]
+async fn main() {
+    let (tx1, rx1) = oneshot::channel();
+    let (tx2, rx2) = oneshot::channel();
+
+    tokio::spawn(async {
+        let _ = tx1.send("one");
+    });
+
+    tokio::spawn(async {
+        // 等待 `some_operation` 的完成
+        // 或者处理 `oneshot` 的关闭通知
+        tokio::select! {
+            val = some_operation() => {
+                let _ = tx1.send(val);
+            }
+            _ = tx1.closed() => {
+                // 收到了发送端发来的关闭信号
+                // `select` 即将结束，此时，正在进行的 `some_operation()` 任务会被取消，任务自动完成，
+                // tx1 被释放
+            }
+        }
+    });
+
+    tokio::spawn(async {
+        let _ = tx2.send("two");
+    });
+    
+    tokio::spawn(async {
+        let _ = tx2.send("two");
+    });
+
+    tokio::select! {
+        val = rx1 => {
+            println!("rx1 completed first with {:?}", val);
+        }
+        val = rx2 => {
+            println!("rx2 completed first with {:?}", val);
+        }
+    }
+
+    // 任何一个 select 分支结束后，都会继续执行接下来的代码
+}
+```
+
+## 在循环中使用 select!
+
+```rust
+use tokio::sync::mpsc;
+
+#[tokio::main]
+async fn main() {
+    let (tx1, mut rx1) = mpsc::channel(128);
+    let (tx2, mut rx2) = mpsc::channel(128);
+    let (tx3, mut rx3) = mpsc::channel(128);
+
+    loop {
+        let msg = tokio::select! {
+            Some(msg) = rx1.recv() => msg,
+            Some(msg) = rx2.recv() => msg,
+            Some(msg) = rx3.recv() => msg,
+            else => { break }
+        };
+
+        println!("Got {}", msg);
+    }
+
+    println!("All channels have been closed.");
+}
+```
+
+在循环中使用 select! 最大的不同就是，当某一个分支执行完成后，select! 会继续循环等待并执行下一个分支，直到所有分支最终都完成，最终匹配到 else 分支，然后通过 break 跳出循环
+
+# Stream
+
+要使用 stream ，目前还需要手动引入对应的包：
+
+> tokio-stream = "0.1
+
+## 迭代
+目前， Rust 语言还不支持异步的 for 循环，因此我们需要 while let 循环和 StreamExt::next() 一起使用来实现迭代的目的:
+
+```rust
+use tokio_stream::StreamExt;
+
+#[tokio::main]
+async fn main() {
+    let mut stream = tokio_stream::iter(&[1, 2, 3]);
+    
+    while let Some(v) = stream.next().await {
+        println!("GOT = {:?}", v);
+    }
+}
+```
+## 适配器
+
+迭代器有两种适配器：
+
+* 迭代器适配器，会将一个迭代器转变成另一个迭代器，例如 map，filter 等
+* 消费者适配器，会消费掉一个迭代器，最终生成一个值，例如 collect 可以将迭代器收集成一个集合
+
+```rust
+use tokio_stream::StreamExt;
+use mini_redis::client;
+
+async fn publish() -> mini_redis::Result<()> {
+    let mut client = client::connect("127.0.0.1:6379").await?;
+
+    // 发布一些数据
+    client.publish("numbers", "1".into()).await?;
+    client.publish("numbers", "two".into()).await?;
+    client.publish("numbers", "3".into()).await?;
+    client.publish("numbers", "four".into()).await?;
+    client.publish("numbers", "five".into()).await?;
+    client.publish("numbers", "6".into()).await?;
+    Ok(())
+}
+
+async fn subscribe() -> mini_redis::Result<()> {
+    let client = client::connect("127.0.0.1:6379").await?;
+    let subscriber = client.subscribe(vec!["numbers".to_string()]).await?;
+    let messages = subscriber.into_stream();
+    
+    let messages = messages
+        .filter(|msg| match msg {
+            Ok(msg) if msg.content.len() == 1 => true,
+            _ => false,
+        })
+        .map(|msg| msg.unwrap().content)
+        .take(3);
+
+    tokio::pin!(messages);
+
+    while let Some(msg) = messages.next().await {
+        println!("got = {:?}", msg);
+    }
+
+    Ok(())
+}
+
+#[tokio::main]
+async fn main() -> mini_redis::Result<()> {
+    tokio::spawn(async {
+        publish().await
+    });
+
+    subscribe().await?;
+
+    println!("DONE");
+
     Ok(())
 }
 ```
