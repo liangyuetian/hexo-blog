@@ -1,5 +1,5 @@
 ---
-title: @nestjsx/crud 初体验
+title: nestjsx/crud 初体验
 tags: nodejs
 categories: Node.js
 abbrlink: 3036132183
@@ -8,6 +8,10 @@ date: 2022-08-10 23:16:57
 
 CRUD是指在做计算处理时的增加(Create)、读取查询(Retrieve)、更新(Update)和删除(Delete)几个单词的首字母简写。
 主要被用在描述软件系统中DataBase或者持久层的基本操作功能。
+
+项目地址:
+[https://github.com/nestjsx/crud](https://github.com/nestjsx/crud)
+[https://github.com/nestjsx/crud/wiki](https://github.com/nestjsx/crud/wiki)
 
 <!-- more -->
 
