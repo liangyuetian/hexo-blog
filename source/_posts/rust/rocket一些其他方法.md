@@ -3,7 +3,9 @@ title: rocket 一些其他方法
 abbrlink: 2725065807
 date: 2022-08-10 00:44:58
 tags:
-categories:
+  - rust
+  - io
+categories: Rust
 ---
 
 [https://rocket.rs/v0.5-rc/guide/responses/#typed-uris](https://rocket.rs/v0.5-rc/guide/responses/#typed-uris)

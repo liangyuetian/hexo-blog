@@ -3,7 +3,10 @@ title: 看rocket怎么返回json
 abbrlink: 2866793110
 date: 2022-08-09 23:35:19
 tags:
-categories:
+  - rust
+  - io
+categories: Rust
+
 ---
 
 官方文档定义 response 是一个 responder
