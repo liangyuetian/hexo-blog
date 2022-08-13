@@ -12,6 +12,10 @@ date: 2022-08-11 23:29:49
 <code>actix-web</code> 也是一款非常快速和成熟的方法，为什么看了 rocket 还要看 actix-web 呢，那是因为 rocket 不支持 webSocket 呀
 
 [https://actix.rs/](https://actix.rs/)
+主要记录了：
+1. 启动
+2. 定义路由
+3. 获取参数
 
 <!-- more -->
 
