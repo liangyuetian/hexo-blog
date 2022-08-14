@@ -143,6 +143,10 @@ async fn index(name: web::Path<String>) -> Result<impl Responder> {
     };
     Ok(web::Json(obj))
 }
+
+async fn current_temperature() -> impl Responder {
+    web::Json(json!({ "temperature": 42.3 }))
+}
 ```
 
 # 内容解码
