@@ -96,48 +96,45 @@ sidebar:
   # Enable sidebar on narrow view (only for Muse | Mist).
   onmobile: false
 
-font:
-  enable: true
 
-  # Uri of fonts host. E.g. //fonts.googleapis.com (Default).
+font:
+  enable: false
+
+  # Uri of fonts host, e.g. https://fonts.googleapis.com (Default).
   host:
 
   # Font options:
   # `external: true` will load this font family from `host` above.
   # `family: Times New Roman`. Without any quotes.
-  # `size: xx`. Use `px` as unit.
+  # `size: x.x`. Use `em` as unit. Default: 1 (16px)
 
-  # Global font settings used on <body> element.
+  # Global font settings used for all elements inside <body>.
   global:
     external: true
     family: LXGW
-    size: 16px
+    size: 0.875
 
-  # Font settings for Headlines (h1, h2, h3, h4, h5, h6).
-  # Fallback to `global` font settings.
-  headings:
-    external: true
-    family:
-    size: 16px
-
-  # Font settings for posts.
-  # Fallback to `global` font settings.
-  posts:
-    external: true
-    family:
-    size: 16px
-  # Font settings for Logo.
-  # Fallback to `global` font settings.
-  logo:
+  # Font settings for site title (.site-title).
+  title:
     external: true
     family:
     size:
+
+  # Font settings for headlines (<h1> to <h6>).
+  headings:
+    external: true
+    family:
+    size:
+
+  # Font settings for posts (.post-body).
+  posts:
+    external: true
+    family:
 
   # Font settings for <code> and code blocks.
   codes:
     external: true
     family:
-    size:
 
 motion:
   enable: true
