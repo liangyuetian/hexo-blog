@@ -1,8 +1,9 @@
 ---
 title: rust可变引用的排他性
+categories: Rust
+abbrlink: 222756652
 date: 2022-08-19 10:27:27
 tags:
-categories: Rust
 ---
 
 [https://rust-book.junmajinlong.com/ch6/04_understand_mutable_ref.html](https://rust-book.junmajinlong.com/ch6/04_understand_mutable_ref.html)
