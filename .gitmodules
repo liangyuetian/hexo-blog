@@ -1,9 +1,4 @@
 [submodule "themes/next"]
 	path = themes/next
 	url = https://github.com/theme-next/hexo-theme-next.git
-[submodule "themes/shoka"]
-	path = themes/shoka
-	url = https://github.com/amehime/hexo-theme-shoka.git
-[submodule "themes/hexo-theme-volantis"]
-	path = themes/hexo-theme-volantis
-	url = https://github.com/volantis-x/hexo-theme-volantis.git
+	

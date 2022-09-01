@@ -20,6 +20,12 @@ https://github.com/dongyuanxin/theme-bmw.git
 [hexo-theme-aiki](https://github.com/foreachsam/hexo-theme-aiki) [demo](https://foreachsam.github.io/blog-framework-semantic-ui/article/)
 
 
+目前觉得好看的主题：
+1. hexo-theme-volantis
+2. yilia-plus
+3. shoka
+
+
 git submodule 使用
 添加
 ```bash
